@@ -1,0 +1,25 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode user state and generated build products
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+DerivedData/
+build/
+
+# Swift Package Manager generated workspace/build state (not package manifests)
+.build/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Local signing material and provisioning profiles
+*.mobileprovision
+*.provisionprofile
+*.p12
+/Signing/
+
+# Private exported training backups; keep this narrowly scoped
+*.training-backup
+*.training-backup.enc
