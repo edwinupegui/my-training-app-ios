@@ -47,7 +47,7 @@ Local storage is not a promise that iOS device backups exclude app data. The dev
 
 On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. On 2026-10-03 the owner authorized the distinct bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. Session behavior/logging, history data, timers, persistence, backup, and further product features remain unauthorized. See [iOS foundation evidence](ios-foundation.md), [routine browsing evidence](routine-browsing.md), and [exercise-guide implementation and recovery evidence](exercise-guides.md).
 
-For guide-slice delivery, the owner authorized local commits and selected the feature-branch chain: G1 and G2 commits are recorded in the evidence, and the final G3 documentation-only commit is forthcoming. This is local closure only; no push, PR, merge, release, or native approval is implied.
+For guide-slice delivery, the owner authorized local commits and selected the feature-branch chain: G1 and G2 commits are recorded in the evidence; G3 records the documentation-only closeout. This is local closure only; no push, PR, merge, release, or native approval is implied.
 
 ## Acceptance checklist for future product implementation
 
