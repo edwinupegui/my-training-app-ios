@@ -1,0 +1,19 @@
+# Offline exercise guides — catalog evidence
+
+## Scope and model
+
+G1 adds immutable, bundled Spanish guide values and stable literal identities under the Routine feature. Each guide has purpose, target, equipment, setup, ordered steps, common errors, and breathing. Every prescribed exercise carries an explicit ordered array of stable guide-reference IDs and display titles; neither identity nor lookup is derived from exercise names or array positions. The pure catalog validator checks unique guide/reference IDs, valid stable-ID syntax, required nonblank guide fields and ordered content, nonempty prescription references, malformed references, and dangling guide IDs.
+
+The 30 strength prescriptions resolve through 37 references to 36 distinct guides. Seven composite prescriptions expose the alternatives already stated in their names/cues: Monday machine/dumbbell chest press and cable/machine lateral raise; Tuesday Scott/machine curl; Thursday hack/guided squat and seated/lying leg curl; Saturday dumbbell/machine incline press; Sunday machine/cable crunch. Monday's incline-machine guide is intentionally reused by Saturday's machine choice because the equipment and movement are the same. No routine prescription text, IDs, names, rest, or cues were rewritten; a read-only comparison against the prior tracked `RoutineContent.swift` confirmed all 30 rows match after excluding only the added references.
+
+Guide prose is original and concise, semantically informed by the read-only sibling reference `../edwin-training-app/src/data/exercises.ts`; reference wording and images are not copied. No personal data, clinical claims, network, persistence, schema, migration, session behavior, or new package is introduced. Immutable bundled content needs no schema/migration. New Swift files are explicit members of the existing app/test targets.
+
+## G1 implementation evidence — 2026-10-03
+
+Toolchain freshness check: Xcode 27.0 (27A266a), Swift 6.4 (`swift-driver 1.168.6`), iOS/iOS Simulator SDK 27.0. The focused simulator was an available iPhone 17e; command examples keep its identifier private as `${SIMULATOR_ID}`.
+
+- **RED:** justified exception. Before G1 there was no guide model, reference field, or callable guide-validation behavior in the app. A test written against that absent API could only fail to compile, which is not a behavioral RED. No compile failure or deliberately broken helper is claimed as RED.
+- **GREEN:** `xcodebuild -project TrainingApp.xcodeproj -scheme TrainingApp -destination "platform=iOS Simulator,id=${SIMULATOR_ID}" -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -derivedDataPath build/GuideDerivedData -resultBundlePath build/GuideDomainGREEN5.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:TrainingAppTests test` — passed, finalized result bundle: 15 tests passed, 0 failures, 0 skipped, 0 result-bundle runtime warnings (8 existing routine tests plus 7 guide tests). Build emitted the non-blocking Xcode notice `Metadata extraction skipped, no AppIntents.framework dependency found`; it is not a test failure. Simulator console also printed `[API] cannot add handler to 0 from 0 - dropping` and `non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"`; no corresponding test failures or result-bundle runtime warnings.
+- An initial invocation using an inline environment assignment expanded `${SIMULATOR_ID}` before assignment; `xcodebuild` reported “missing value for key 'id' of option 'Destination'” and ran no tests. The corrected exported variable was used for GREEN; the setup error is not RED evidence.
+- `git diff --check` passed. A bounded read-only baseline check verified all 30 routine prescription lines remain identical apart from the appended guide-reference arrays.
+

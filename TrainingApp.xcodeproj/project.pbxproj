@@ -18,6 +18,9 @@
 		A1000000000000000000000A /* RoutineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000C /* RoutineContent.swift */; };
 		A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* RoutineCatalogTests.swift */; };
 		A1000000000000000000000C /* RoutineDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* RoutineDayView.swift */; };
+		A1000000000000000000000D /* ExerciseGuideCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* ExerciseGuideCatalog.swift */; };
+		A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000011 /* ExerciseGuideContent.swift */; };
+		A1000000000000000000000F /* ExerciseGuideCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +44,15 @@
 		A2000000000000000000000D /* RoutineCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCatalogTests.swift; sourceTree = "<group>"; };
 		A2000000000000000000000E /* TrainingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2000000000000000000000F /* RoutineDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDayView.swift; sourceTree = "<group>"; };
+		A20000000000000000000010 /* ExerciseGuideCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideCatalog.swift; sourceTree = "<group>"; };
+		A20000000000000000000011 /* ExerciseGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideContent.swift; sourceTree = "<group>"; };
+		A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideCatalogTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A40000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 		A40000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
-		A40000000000000000000007 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000007 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */, A1000000000000000000000F /* ExerciseGuideCatalogTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
 		A40000000000000000000008 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 		A40000000000000000000009 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
@@ -80,7 +86,7 @@
 		};
 		A6000000000000000000000B /* TrainingAppTests */ = {
 			isa = PBXGroup;
-			children = (A2000000000000000000000D /* RoutineCatalogTests.swift */,);
+			children = (A2000000000000000000000D /* RoutineCatalogTests.swift */, A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */,);
 			path = TrainingAppTests;
 			sourceTree = "<group>";
 		};
@@ -121,7 +127,7 @@
 		};
 		A60000000000000000000008 /* Routine */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000007 /* RoutineView.swift */, A20000000000000000000008 /* TrainingOverviewView.swift */, A2000000000000000000000B /* RoutineCatalog.swift */, A2000000000000000000000C /* RoutineContent.swift */, A2000000000000000000000F /* RoutineDayView.swift */,);
+			children = (A20000000000000000000007 /* RoutineView.swift */, A20000000000000000000008 /* TrainingOverviewView.swift */, A2000000000000000000000B /* RoutineCatalog.swift */, A2000000000000000000000C /* RoutineContent.swift */, A2000000000000000000000F /* RoutineDayView.swift */, A20000000000000000000010 /* ExerciseGuideCatalog.swift */, A20000000000000000000011 /* ExerciseGuideContent.swift */,);
 			path = Routine;
 			sourceTree = "<group>";
 		};
@@ -222,7 +228,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A40000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* TrainingApp.swift in Sources */, A10000000000000000000002 /* AppRootView.swift in Sources */, A10000000000000000000005 /* RoutineView.swift in Sources */, A10000000000000000000006 /* TrainingOverviewView.swift in Sources */, A10000000000000000000007 /* HistoryView.swift in Sources */, A10000000000000000000008 /* SettingsView.swift in Sources */, A10000000000000000000009 /* RoutineCatalog.swift in Sources */, A1000000000000000000000A /* RoutineContent.swift in Sources */, A1000000000000000000000C /* RoutineDayView.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* TrainingApp.swift in Sources */, A10000000000000000000002 /* AppRootView.swift in Sources */, A10000000000000000000005 /* RoutineView.swift in Sources */, A10000000000000000000006 /* TrainingOverviewView.swift in Sources */, A10000000000000000000007 /* HistoryView.swift in Sources */, A10000000000000000000008 /* SettingsView.swift in Sources */, A10000000000000000000009 /* RoutineCatalog.swift in Sources */, A1000000000000000000000A /* RoutineContent.swift in Sources */, A1000000000000000000000C /* RoutineDayView.swift in Sources */, A1000000000000000000000D /* ExerciseGuideCatalog.swift in Sources */, A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
 		A40000000000000000000004 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000004 /* NavigationSmokeTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
