@@ -30,6 +30,76 @@ final class NavigationSmokeTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["RIR 2 · Alternativa: press con mancuernas"].exists)
     }
 
+    func testPrescriptionOpensItsExerciseGuide() {
+        let app = XCUIApplication()
+        launchInEnglish(app)
+
+        app.buttons["routine.day.tuesday"].tap()
+        XCTAssertTrue(app.descendants(matching: .any)["routine.day-detail.tuesday"].waitForExistence(timeout: 2))
+
+        let exercise = app.staticTexts["routine.exercise.tuesday-lat-pulldown.name"]
+        var swipes = 0
+        while !exercise.exists && swipes < 3 {
+            app.swipeUp()
+            swipes += 1
+        }
+        XCTAssertTrue(exercise.waitForExistence(timeout: 2))
+        exercise.tap()
+
+        let guide = app.descendants(matching: .any)["exercise-guide.tuesday-lat-pulldown"]
+        XCTAssertTrue(guide.waitForExistence(timeout: 2))
+        assertGuideSectionIsVisible("Purpose", in: app)
+        assertGuideSectionIsVisible("Equipment", in: app)
+        assertGuideSectionIsVisible("Steps", in: app)
+        assertGuideSectionIsVisible("Common errors", in: app)
+        assertGuideSectionIsVisible("Breathing", in: app)
+    }
+
+    func testCompositePrescriptionOffersNamedVariantsAndReturnsSafely() {
+        let app = XCUIApplication()
+        launchInEnglish(app)
+
+        app.buttons["routine.day.monday"].tap()
+        let exercise = app.staticTexts["routine.exercise.monday-machine-chest-press.name"]
+        XCTAssertTrue(exercise.waitForExistence(timeout: 2))
+        exercise.tap()
+
+        let choices = app.descendants(matching: .any)["exercise-guide.choices.monday-machine-chest-press"]
+        XCTAssertTrue(choices.waitForExistence(timeout: 2))
+        let machineChoice = app.buttons["exercise-guide.choice.monday-machine-chest-press-machine"]
+        let dumbbellChoice = app.buttons["exercise-guide.choice.monday-machine-chest-press-dumbbell"]
+        XCTAssertTrue(machineChoice.exists)
+        XCTAssertTrue(dumbbellChoice.exists)
+        XCTAssertTrue(app.staticTexts["Press en máquina"].exists)
+        XCTAssertTrue(app.staticTexts["Press con mancuernas"].exists)
+
+        dumbbellChoice.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["exercise-guide.monday-dumbbell-chest-press"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.staticTexts["Empujar horizontalmente con cargas independientes."].exists)
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(choices.waitForExistence(timeout: 2))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.descendants(matching: .any)["routine.day-detail.monday"].exists)
+    }
+
+    func testSpanishExerciseGuideLabelsAndBackNavigation() {
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(es)", "-AppleLocale", "es_ES"]
+        app.launch()
+
+        app.buttons["routine.day.tuesday"].tap()
+        app.staticTexts["routine.exercise.tuesday-lat-pulldown.name"].tap()
+        XCTAssertTrue(app.descendants(matching: .any)["exercise-guide.tuesday-lat-pulldown"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.staticTexts["Propósito"].exists)
+        XCTAssertTrue(app.staticTexts["Músculos trabajados"].exists)
+        XCTAssertTrue(app.staticTexts["Equipo"].exists)
+        XCTAssertTrue(app.staticTexts["Preparación"].exists)
+        XCTAssertTrue(app.staticTexts["Pasos"].exists)
+        XCTAssertTrue(app.staticTexts["Jalón al pecho"].exists)
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.descendants(matching: .any)["routine.day-detail.tuesday"].exists)
+    }
+
     func testNavigationDestinationsAndReturn() {
         let app = XCUIApplication()
         launchInEnglish(app)
@@ -99,6 +169,16 @@ final class NavigationSmokeTests: XCTestCase {
         XCTAssertEqual(plankPrescription.label, "3 × 25–45 s")
         XCTAssertTrue(app.staticTexts["routine.exercise.sunday-plank.cue"].exists)
         XCTAssertTrue(app.staticTexts["Respira y mantén postura"].exists)
+    }
+
+    private func assertGuideSectionIsVisible(_ label: String, in app: XCUIApplication) {
+        let section = app.staticTexts[label]
+        var swipes = 0
+        while !section.isHittable && swipes < 6 {
+            app.swipeUp()
+            swipes += 1
+        }
+        XCTAssertTrue(section.isHittable, "Expected guide section '\(label)' to be visible after at most six scrolls.")
     }
 
     private func launchInEnglish(_ app: XCUIApplication) {
