@@ -2,6 +2,12 @@ import SwiftUI
 
 struct RoutineDayView: View {
     let day: RoutineDay
+    let guideCatalog: ExerciseGuideCatalog
+
+    init(day: RoutineDay, guideCatalog: ExerciseGuideCatalog = .bundled) {
+        self.day = day
+        self.guideCatalog = guideCatalog
+    }
 
     var body: some View {
         List {
@@ -27,15 +33,7 @@ struct RoutineDayView: View {
             if day.kind == .strength {
                 Section("routine.section.exercises") {
                     ForEach(day.exercises, id: \.id) { exercise in
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(exercise.name)
-                                .font(.headline)
-                                .accessibilityIdentifier("routine.exercise.\(exercise.id).name")
-                            field("routine.field.prescription", value: exercise.prescription, id: "routine.exercise.\(exercise.id).prescription")
-                            field("routine.field.rest", value: exercise.rest, id: "routine.exercise.\(exercise.id).rest")
-                            field("routine.field.cue", value: exercise.cue, id: "routine.exercise.\(exercise.id).cue")
-                        }
-                        .padding(.vertical, 6)
+                        exerciseRow(exercise)
                     }
                 }
             } else {
@@ -57,6 +55,45 @@ struct RoutineDayView: View {
         .accessibilityIdentifier("routine.day-detail.\(day.id)")
         .navigationTitle(day.title)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    @ViewBuilder
+    private func exerciseRow(_ exercise: PrescribedExercise) -> some View {
+        let label = exerciseContent(exercise)
+        switch exercise.guideReferences.count {
+        case 1:
+            NavigationLink {
+                ExerciseGuideView(reference: exercise.guideReferences[0], catalog: guideCatalog)
+            } label: {
+                label
+            }
+            .accessibilityIdentifier("routine.exercise.\(exercise.id)")
+        case 2...:
+            NavigationLink {
+                ExerciseGuideChoicesView(exercise: exercise, catalog: guideCatalog)
+            } label: {
+                label
+            }
+            .accessibilityIdentifier("routine.exercise.\(exercise.id)")
+        default:
+            label
+            Text("exercise-guide.unavailable.message")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .accessibilityIdentifier("routine.exercise.\(exercise.id).guide-unavailable")
+        }
+    }
+
+    private func exerciseContent(_ exercise: PrescribedExercise) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(exercise.name)
+                .font(.headline)
+                .accessibilityIdentifier("routine.exercise.\(exercise.id).name")
+            field("routine.field.prescription", value: exercise.prescription, id: "routine.exercise.\(exercise.id).prescription")
+            field("routine.field.rest", value: exercise.rest, id: "routine.exercise.\(exercise.id).rest")
+            field("routine.field.cue", value: exercise.cue, id: "routine.exercise.\(exercise.id).cue")
+        }
+        .padding(.vertical, 6)
     }
 
     private func field(_ label: LocalizedStringKey, value: String, id: String) -> some View {

@@ -91,6 +91,23 @@ struct PrescribedExercise: Sendable {
     let prescription: String
     let rest: String
     let cue: String
+    let guideReferences: [ExerciseGuideReference]
+
+    init(
+        id: String,
+        name: String,
+        prescription: String,
+        rest: String,
+        cue: String,
+        guideReferences: [ExerciseGuideReference] = []
+    ) {
+        self.id = id
+        self.name = name
+        self.prescription = prescription
+        self.rest = rest
+        self.cue = cue
+        self.guideReferences = guideReferences
+    }
 }
 
 struct RecoveryItem: Sendable {
