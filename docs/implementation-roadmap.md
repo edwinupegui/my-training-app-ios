@@ -2,9 +2,9 @@
 
 ## Delivery and authorization gate
 
-This repository contains the F1/F2 native shell and the bounded B1/B2 offline routine-browsing slice; all other product behavior remains future work ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
+This repository contains the F1/F2 native shell, the bounded B1/B2 offline routine-browsing slice, and the separately authorized offline guide catalog/navigation slice; session and durable-data behavior remain future work ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
 
-The owner approved the simulator-first F1 shell, F2 navigation, and the bounded B1/B2 catalog-and-routine-browsing work on 2026-10-02. This authorization does not cover exercise guide prose, sessions/logging, persistence, timers, backup, or unrelated training behavior. Before those units, obtain their explicit authorization and close relevant decisions in [scope](product-scope.md#decisions-required-before-affected-work), including session pause semantics where lifecycle/timer behavior is involved. Do not add a framework/package dependency without a separately approved need.
+The owner approved the simulator-first F1 shell, F2 navigation, and bounded B1/B2 catalog-and-routine-browsing work on 2026-10-02. On 2026-10-03 the owner authorized only the bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. Neither authorization covers session behavior/logging, persistence, timers, backup, or unrelated training behavior. Before those units, obtain explicit authorization and close relevant decisions in [scope](product-scope.md#decisions-required-before-affected-work), including session pause semantics where lifecycle/timer behavior is involved. Do not add a framework/package dependency without a separately approved need.
 
 ## Work units
 
@@ -29,20 +29,29 @@ The owner approved the simulator-first F1 shell, F2 navigation, and the bounded 
 - B1 adds the immutable versioned bundled catalog, stable literal day/exercise IDs, pure validation, source title correction, eight Swift Testing tests, and the hosted test target.
 - B2 provides offline native week → day navigation with source-exact Spanish routine titles, subtitles, notes, prescriptions, rest strings, cues and recovery rows. Generic UI labels are localized in English and Spanish; source copy is not parsed, translated or treated as guide/session behavior.
 - Validation failure is shown as a localized fallback, not an assertion or precondition. There are no guide links, session/start/save actions, persistence, history records, timers or backup behavior.
-- Final full simulator run passed eight domain and four UI tests. Exact command/result artifacts, earlier non-RED setup failures, observed REDs, and pending device checks are recorded in [routine browsing evidence](routine-browsing.md).
+- The original B1/B2 validation record remains eight domain and four UI tests; exact commands/results, setup failures, observed REDs, warnings, and pending device checks are recorded in [routine browsing evidence](routine-browsing.md). This historical B1/B2 result is separate from the later guide recovery results.
 - No SwiftData schema or migration was added because these values are bundled, immutable content.
 
-### 1. Remaining domain model, validation, and prescribed content
+### Bounded offline exercise-guide catalog and navigation — authorized 2026-10-03
 
-- Define stable IDs, routine/exercise content, explicit units, load modes, unilateral sides, optional RIR, and session state transitions.
-- Import only approved content semantics from the reference; author reviewed guide text/assets separately and respect rights. Do not copy the entire site or private measures.
+This is a distinct content/navigation slice, not session-domain behavior. It adds 36 immutable original Spanish guides, 37 stable references across 30 prescriptions, seven composite variant choices, and native guide navigation. One machine-incline guide is intentionally reused. It adds no sessions, persistence, assets, schema, or migration. The 30 source prescription rows remain unchanged.
+
+- Finalized recovery results: 15 domain tests passed (8 routine + 7 guide) and 7 UI tests passed (4 prior + 3 guide), in two separate invocations; each result has zero failures, skipped tests, and runtime warnings. These are not a single combined full-suite result. A separate standalone simulator build reported `BUILD SUCCEEDED`.
+- Initial/partial attempts and the bounded recovery history are retained, including the meaningful missing-destination UI RED, UI runner startup incident, wrong-locale assertion correction, and the timed-out combined attempt. The runner incident's cause was not established. See [exercise-guide implementation and recovery evidence](exercise-guides.md).
+- Native approval remains pending: G1 produced no verdict after its host-consent windows expired without a native invocation; G2's medium-risk, under-budget review was deferred to a future PR slice. Independent verification was completed for both slices; this is not native approval. Runtime injected fallback, physical signing/install, VoiceOver, actual Dynamic Type, contrast, Reduce Motion/Transparency, native materials, and airplane-mode checks remain pending.
+- The owner authorized local commits and selected the feature-branch chain. G1 and G2 are committed as recorded in [exercise-guide evidence](exercise-guides.md); the G3 documentation-only closeout commit is forthcoming. No push, PR, merge, or release is authorized by this closeout.
+
+### 1. Future session domain model, validation, and prescribed behavior
+
+- Define session-domain identity and behavior, explicit units, load modes, unilateral sides, optional RIR, and session state transitions; do not duplicate the separately implemented immutable guide catalog.
+- Import only approved routine/session semantics from the reference. Do not copy the entire site, guide assets, or private measures.
 - Keep routine version and completed snapshot immutable; validate bounds, order, IDs, and references at domain boundaries.
 
 **RED:** tests fail for invalid reps/load, ambiguous units, invalid RIR, duplicate IDs, a missing reference, and comparing distinct modes. A valid bodyweight/external-load/unilateral case should also be specified.
 
 **GREEN:** domain tests pass for accepted/rejected records, stable identity and order, and creation of an independent session snapshot.
 
-**Acceptance:** baseline week and exercise guides are navigable offline; representative Spanish labels and long guide text are legible; no personal values are seeded.
+**Acceptance:** session-domain behavior meets its approved contract without changing the source routine or guide catalog; no personal values are seeded.
 
 ### 2. Local persistence, migrations, and session recovery
 

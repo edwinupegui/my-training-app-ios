@@ -26,3 +26,23 @@ G2 adds direct navigation for single-guide prescriptions, a native ordered choos
 - **Correction:** direct-guide assertions now use English labels (`Purpose`, `Equipment`, `Steps`, `Common errors`, `Breathing`) and bounded scrolling to make lower List sections visible before asserting them. Assertions remain intact.
 - **GREEN3:** `xcodebuild -project TrainingApp.xcodeproj -scheme TrainingApp -destination "platform=iOS Simulator,id=${SIMULATOR_ID}" -parallel-testing-enabled NO -maximum-concurrent-test-simulator-destinations 1 -derivedDataPath build/GuideDerivedData -resultBundlePath build/GuideUIGREEN3.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:TrainingAppUITests/NavigationSmokeTests/testPrescriptionOpensItsExerciseGuide -only-testing:TrainingAppUITests/NavigationSmokeTests/testCompositePrescriptionOffersNamedVariantsAndReturnsSafely -only-testing:TrainingAppUITests/NavigationSmokeTests/testSpanishExerciseGuideLabelsAndBackNavigation test` — finalized xcresult on an iPhone 17e / iOS 27.0: 3 passed, 0 failed, 0 skipped, no runtime warnings. `xcresulttool get test-results tests` confirms each selected test passed.
 - The earlier GREEN attempt at `build/GuideUIGREEN.xcresult` had a simulator runner startup failure and diagnostic timeout; the subsequent independent retry recovered execution. Separate non-blocking diagnostics: AppIntents metadata extraction was skipped because no `AppIntents.framework` dependency exists; the G1 record separately notes simulator API/PointerUI console diagnostics.
+
+## G3 bounded recovery and remaining review — 2026-10-03
+
+Recovery is finalized; it is not a single combined full-suite result. The finalized immutable summaries report:
+
+| Invocation | Result | Composition | Failures | Skipped | Runtime warnings |
+|---|---|---|---:|---:|---:|
+| Domain (`build/GuideRecoveryDomain.xcresult`) | 15 passed | 8 routine + 7 guide | 0 | 0 | 0 |
+| UI (`build/GuideRecoveryUI.xcresult`) | 7 passed | 4 prior + 3 guide | 0 | 0 | 0 |
+
+A separate standalone simulator build reported `BUILD SUCCEEDED`. These separate results do not establish that a combined full-suite invocation passed. The earlier combined attempt timed out after 1200 seconds without `Info.plist`; its partial result remains preserved, and no success or test count is inferred from it.
+
+The history above remains intact: the guide-domain RED was narrowly inapplicable because no behavior existed before implementation; the G2 missing-destination assertion was a meaningful observed UI RED. The first UI GREEN attempt had a runner startup failure; the later wrong-locale assertion was corrected to match English labels and bounded scrolling. Initial shell/environment setup errors and nonblocking runner/diagnostic incidents are retained as historical attempts, not recast as product failures. The independent simulator restart was authorized as recovery, but the incident's cause was not established.
+
+### Review and delivery status
+
+- **G1:** The two host-consent windows expired after 10 minutes. No native invocation or lineage was created, so there is no native verdict—not approval and not decline. Independent domain-only verification passed 15 tests and a build; it was not a combined-suite run. The follow-up EOF-format correction is documentation-only. Commit `ec76f8cadb3810880b8e80f5e7e9f8a2578d5269` contains the catalog/domain slice; `86161a225e3dcf9b903e7a163806954e21197434` records the additional doc EOF fix.
+- **G2:** Independent preservation/structure and test-artifact verification completed. The 302-line medium-risk assessment was under budget; native review was deferred to a future PR slice, with no approval or decline. Commit: `d8db1012045143ad1962f9589c791de0578d5056`.
+- **G3:** The owner authorized local commits and selected the feature-branch chain. This documentation-only unit records the three logical work units and their verification boundaries. This does not authorize publication: no push, PR, merge, or release is planned here, and native approval remains pending.
+- Runtime injected-fallback behavior, physical signing/install, VoiceOver, actual Dynamic Type, contrast, Reduce Motion/Transparency, native materials, and airplane-mode checks remain pending. Simulator results are not physical-device evidence.
