@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Plan a native, private training companion that lets one person follow a familiar weekly routine, adapt the active session, record each set, and recover data without a service account. This remains a product specification: the F1/F2 shell and the bounded B1/B2 offline routine week → day → prescription browsing slice are implemented. Exercise guides, workout/session behavior and durable-data features described below do not yet exist.
+Plan a native, private training companion that lets one person follow a familiar weekly routine, adapt the active session, record each set, and recover data without a service account. The F1/F2 shell, bounded B1/B2 offline routine week → day → prescription browsing slice, and separately authorized offline exercise-guide catalog/navigation slice are implemented. Workout/session behavior and durable-data features described below remain future work.
 
 ## Product baseline
 
@@ -12,11 +12,11 @@ Plan a native, private training companion that lets one person follow a familiar
 | Session logging | Record exercise, set order, load, repetitions, and optional RIR; resume an unfinished session. | No coaching claims or automatic progression. |
 | Context | See the most recent comparable performance and browse session history. | Do not silently treat changed exercise variants or units as directly comparable. |
 | Rest | Start a rest interval after a set; retain its deadline across app suspension and relaunch. | No guarantee of continuous background execution. |
-| Guides | Present exercise purpose, equipment, cues, common errors, and breathing guidance. | Reuse meaning, not HTML/CSS or reference images. |
+| Guides | Present exercise purpose, equipment, cues, common errors, and breathing guidance. | Implemented as immutable bundled original Spanish content with variant-specific navigation; no sessions, persistence, or assets. Reuse meaning, not HTML/CSS or reference images. |
 | Backup | Explicitly export and import a portable, versioned file. | No automatic cloud sync or backend. User chooses the destination. |
 | Language | Initial UI may be Spanish, matching the existing reference. | Localization structure and additional languages are not a launch blocker unless later decided. |
 | Design | Native SwiftUI with a deliberate Liquid Glass visual hierarchy. | Do not approximate system materials with web CSS blur. |
-| F1/F2 shell and routine browsing | Show native Routine, History and Settings tabs; browse seven bundled days and their source prescriptions/recovery rows offline. | Full exercise guides, sessions/logging, history records, settings actions, persistence, timers and backup remain unimplemented. |
+| F1/F2 shell, B1/B2 routine browsing, and bounded guide slice | Show native Routine, History and Settings tabs; browse seven bundled days, source prescriptions/recovery rows, and linked exercise guides offline. | Guide slice adds original Spanish guide content and variant navigation only; sessions/logging, history records, settings actions, persistence, timers and backup remain unimplemented. |
 
 Reference evidence (read-only): the weekly split and prescribed routine data start in [`../edwin-training-app/src/pages/index.astro`](../../edwin-training-app/src/pages/index.astro#L5) and its routine definitions at [line 15](../../edwin-training-app/src/pages/index.astro#L15). Exercise-guide fields are represented in [`../edwin-training-app/src/data/exercises.ts`](../../edwin-training-app/src/data/exercises.ts#L1). Nutrition and progress advice are in the reference page at [nutrition](../../edwin-training-app/src/pages/index.astro#L167) and [progress](../../edwin-training-app/src/pages/index.astro#L175). These are reference semantics, not a request to copy personal metrics or assets.
 
@@ -45,7 +45,9 @@ Local storage is not a promise that iOS device backups exclude app data. The dev
 
 ## Current implementation authorizations
 
-On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. Authorization does not extend to guide prose, session behavior/logging, history data, timers, persistence, backup, or further product features. See [iOS foundation evidence](ios-foundation.md) and [routine browsing evidence](routine-browsing.md).
+On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. On 2026-10-03 the owner authorized the distinct bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. Session behavior/logging, history data, timers, persistence, backup, and further product features remain unauthorized. See [iOS foundation evidence](ios-foundation.md), [routine browsing evidence](routine-browsing.md), and [exercise-guide implementation and recovery evidence](exercise-guides.md).
+
+The native G1 (`review-2f81f531be923a47`, `12c`→`861`) and G2 (`review-655d41a2675a9549`, `861`→`d8`) reviews are approved and acknowledged; both acknowledgement authorities are burned. G1 consumed revision `249e09eae038282768e3d30a30e306c7f5b3c18d16a16a5d0c5fc30410303c56`; G2 consumed `bff1edeaea08b575515380f2d31ecc09f0e68d206db38cffff13ee50802a0bf2`. The owner-selected feature-branch chain remains a future plan only. Review approval is not delivery authorization; no branches, push, PR, merge, or release are authorized.
 
 ## Acceptance checklist for future product implementation
 

@@ -25,6 +25,66 @@
         "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
       }
     },
+    "exercise-guide.choices.section" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose a variant" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elige una variante" } }
+      }
+    },
+    "exercise-guide.choices.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exercise variants" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Variantes del ejercicio" } }
+      }
+    },
+    "exercise-guide.section.breathing" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Breathing" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Respiración" } }
+      }
+    },
+    "exercise-guide.section.common-errors" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Common errors" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Errores comunes" } }
+      }
+    },
+    "exercise-guide.section.equipment" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Equipment" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Equipo" } }
+      }
+    },
+    "exercise-guide.section.preparation" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preparation" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Preparación" } }
+      }
+    },
+    "exercise-guide.section.purpose" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Purpose" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Propósito" } }
+      }
+    },
+    "exercise-guide.section.steps" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Steps" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pasos" } }
+      }
+    },
+    "exercise-guide.section.target" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Muscles worked" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Músculos trabajados" } }
+      }
+    },
+    "exercise-guide.unavailable.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This exercise guide is unavailable. You can still browse the routine." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esta guía de ejercicio no está disponible. Aún puedes consultar la rutina." } }
+      }
+    },
     "routine.catalog.unavailable.message" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "The routine content is unavailable because its validation failed." } },

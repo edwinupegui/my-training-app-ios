@@ -21,6 +21,7 @@
 		A1000000000000000000000D /* ExerciseGuideCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* ExerciseGuideCatalog.swift */; };
 		A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000011 /* ExerciseGuideContent.swift */; };
 		A1000000000000000000000F /* ExerciseGuideCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */; };
+		A10000000000000000000010 /* ExerciseGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000013 /* ExerciseGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A20000000000000000000010 /* ExerciseGuideCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideCatalog.swift; sourceTree = "<group>"; };
 		A20000000000000000000011 /* ExerciseGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideContent.swift; sourceTree = "<group>"; };
 		A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideCatalogTests.swift; sourceTree = "<group>"; };
+		A20000000000000000000013 /* ExerciseGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,7 @@
 		};
 		A60000000000000000000008 /* Routine */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000007 /* RoutineView.swift */, A20000000000000000000008 /* TrainingOverviewView.swift */, A2000000000000000000000B /* RoutineCatalog.swift */, A2000000000000000000000C /* RoutineContent.swift */, A2000000000000000000000F /* RoutineDayView.swift */, A20000000000000000000010 /* ExerciseGuideCatalog.swift */, A20000000000000000000011 /* ExerciseGuideContent.swift */,);
+			children = (A20000000000000000000007 /* RoutineView.swift */, A20000000000000000000008 /* TrainingOverviewView.swift */, A2000000000000000000000B /* RoutineCatalog.swift */, A2000000000000000000000C /* RoutineContent.swift */, A2000000000000000000000F /* RoutineDayView.swift */, A20000000000000000000010 /* ExerciseGuideCatalog.swift */, A20000000000000000000011 /* ExerciseGuideContent.swift */, A20000000000000000000013 /* ExerciseGuideView.swift */,);
 			path = Routine;
 			sourceTree = "<group>";
 		};
@@ -228,7 +230,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A40000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* TrainingApp.swift in Sources */, A10000000000000000000002 /* AppRootView.swift in Sources */, A10000000000000000000005 /* RoutineView.swift in Sources */, A10000000000000000000006 /* TrainingOverviewView.swift in Sources */, A10000000000000000000007 /* HistoryView.swift in Sources */, A10000000000000000000008 /* SettingsView.swift in Sources */, A10000000000000000000009 /* RoutineCatalog.swift in Sources */, A1000000000000000000000A /* RoutineContent.swift in Sources */, A1000000000000000000000C /* RoutineDayView.swift in Sources */, A1000000000000000000000D /* ExerciseGuideCatalog.swift in Sources */, A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* TrainingApp.swift in Sources */, A10000000000000000000002 /* AppRootView.swift in Sources */, A10000000000000000000005 /* RoutineView.swift in Sources */, A10000000000000000000006 /* TrainingOverviewView.swift in Sources */, A10000000000000000000007 /* HistoryView.swift in Sources */, A10000000000000000000008 /* SettingsView.swift in Sources */, A10000000000000000000009 /* RoutineCatalog.swift in Sources */, A1000000000000000000000A /* RoutineContent.swift in Sources */, A1000000000000000000000C /* RoutineDayView.swift in Sources */, A1000000000000000000000D /* ExerciseGuideCatalog.swift in Sources */, A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */, A10000000000000000000010 /* ExerciseGuideView.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
 		A40000000000000000000004 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000004 /* NavigationSmokeTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
