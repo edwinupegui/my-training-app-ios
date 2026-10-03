@@ -1,26 +1,38 @@
 # Implementation roadmap
 
-## Delivery rule
+## Delivery and authorization gate
 
-This repository contains no implementation. The units below are future work, ordered by dependencies. Each unit must add its own focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a future behavior-level test fails before its implementation and passes after; it is not evidence for this documentation change.
+This repository contains the F1/F2 native shell and the bounded B1/B2 offline routine-browsing slice; all other product behavior remains future work ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
 
-Start only after relevant product decisions are closed in [scope](product-scope.md#decisions-required-before-affected-work). Do not add a framework/package dependency without a separately approved need. Keep test seams for clock, persistence, and notification scheduling so lifecycle behavior does not require waiting in real time.
+The owner approved the simulator-first F1 shell, F2 navigation, and the bounded B1/B2 catalog-and-routine-browsing work on 2026-10-02. This authorization does not cover exercise guide prose, sessions/logging, persistence, timers, backup, or unrelated training behavior. Before those units, obtain their explicit authorization and close relevant decisions in [scope](product-scope.md#decisions-required-before-affected-work), including session pause semantics where lifecycle/timer behavior is involved. Do not add a framework/package dependency without a separately approved need.
 
 ## Work units
 
-### 0. Project foundation and support decision
+### 0. Project foundation and support decision — F1/F2 shell established
 
-**Depends on:** confirm iOS deployment minimum, Xcode/Swift selection, signing path, bundle identity ownership, and target device support.
+**Depends on:** owner approval for this bounded work unit. The owner approved iPhone-only, iOS 27.0 minimum, simulator-first foundation on 2026-10-02. The provisional bundle identifier is `org.example.trainingapp.simulator`; signing team, provisioning, and owned bundle identity remain deferred until physical installation.
 
-- Create the Xcode project in an independently approved implementation change; this plan creates none.
-- Establish SwiftUI app shell, tab/navigation structure, localization baseline, accessibility settings, build configuration, and CI/local test command documentation.
-- Decide store schema/version ownership and source handling for bundled routine/guide content before committing personal data.
+- Create a native Xcode project with one app target, one XCTest UI target, shared scheme, Swift 6 language mode/strict concurrency, and no third-party dependencies.
+- Establish the minimal SwiftUI placeholder, localization catalog, accessibility identifiers, build configuration, and local build/test command record.
+- Add native Routine, History, and Settings tabs, each with its own `NavigationStack`; Routine links to one honest Training overview placeholder detail. These views own only static local presentation state.
+- Keep the shell direct: no domain/service/layer abstraction, training function, or durable store is justified at this stage; therefore no schema or migration is introduced.
+- Routine content and its bounded browsing UI were authorized separately as B1/B2 below. Workout/session behavior, stored history, settings functions, timers, backup, and store/schema decisions remain pending units.
 
-**RED/GREEN:** a launch/smoke test verifies app entry and navigation destinations; accessibility smoke checks confirm navigation labels exist. For setup-only configuration there may be no meaningful pre-code behavioral RED—state that narrowly rather than fabricating one.
+**F1 evidence:** setup-only configuration has no meaningful pre-code behavioral RED; its entry-existence UI test remains in the suite.
 
-**Acceptance:** clean build/test on declared toolchain; app launches on simulator and target physical iPhone; no credentials, personal metrics, generated state, or private backups are tracked.
+**F2 RED/GREEN:** the focused navigation assertion RED was independently recovered by R1 from the partial result's staged runner diagnostics: `testNavigationDestinationsAndReturn` failed because native tabs were missing (11.191 seconds of test execution; wrapper timeout happened later during finalization). The navigation UI was then added; the first GREEN attempt exposed that accessibility identifiers on custom tab labels do not map to native tab buttons, so the test now pins English locale and queries native tab labels while retaining identifiers for content anchors. The subsequent simulator run passed both UI tests. Exact commands, evidence, warnings, and bundle paths are recorded in [`ios-foundation.md`](ios-foundation.md).
 
-### 1. Domain model, validation, and prescribed content
+**Acceptance boundary:** simulator build and launch/navigation smoke tests on the declared toolchain. Physical-device install/signing, owned bundle identity, VoiceOver, Dynamic Type, Reduce Motion/Transparency, and native material review remain pending. No credentials, personal metrics, generated state, or private backups are tracked.
+
+### Bounded routine browsing — B1/B2 implemented
+
+- B1 adds the immutable versioned bundled catalog, stable literal day/exercise IDs, pure validation, source title correction, eight Swift Testing tests, and the hosted test target.
+- B2 provides offline native week → day navigation with source-exact Spanish routine titles, subtitles, notes, prescriptions, rest strings, cues and recovery rows. Generic UI labels are localized in English and Spanish; source copy is not parsed, translated or treated as guide/session behavior.
+- Validation failure is shown as a localized fallback, not an assertion or precondition. There are no guide links, session/start/save actions, persistence, history records, timers or backup behavior.
+- Final full simulator run passed eight domain and four UI tests. Exact command/result artifacts, earlier non-RED setup failures, observed REDs, and pending device checks are recorded in [routine browsing evidence](routine-browsing.md).
+- No SwiftData schema or migration was added because these values are bundled, immutable content.
+
+### 1. Remaining domain model, validation, and prescribed content
 
 - Define stable IDs, routine/exercise content, explicit units, load modes, unilateral sides, optional RIR, and session state transitions.
 - Import only approved content semantics from the reference; author reviewed guide text/assets separately and respect rights. Do not copy the entire site or private measures.

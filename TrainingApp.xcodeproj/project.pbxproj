@@ -1,0 +1,256 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* TrainingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* TrainingApp.swift */; };
+		A10000000000000000000002 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* AppRootView.swift */; };
+		A10000000000000000000003 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* Localizable.xcstrings */; };
+		A10000000000000000000004 /* NavigationSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* NavigationSmokeTests.swift */; };
+		A10000000000000000000005 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000007 /* RoutineView.swift */; };
+		A10000000000000000000006 /* TrainingOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* TrainingOverviewView.swift */; };
+		A10000000000000000000007 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* HistoryView.swift */; };
+		A10000000000000000000008 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000A /* SettingsView.swift */; };
+		A10000000000000000000009 /* RoutineCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000B /* RoutineCatalog.swift */; };
+		A1000000000000000000000A /* RoutineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000C /* RoutineContent.swift */; };
+		A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* RoutineCatalogTests.swift */; };
+		A1000000000000000000000C /* RoutineDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* RoutineDayView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A30000000000000000000001 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = A50000000000000000000001 /* Project object */; proxyType = 1; remoteGlobalIDString = A70000000000000000000001; remoteInfo = TrainingApp; };
+		A30000000000000000000002 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = A50000000000000000000001 /* Project object */; proxyType = 1; remoteGlobalIDString = A70000000000000000000001; remoteInfo = TrainingApp; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A20000000000000000000001 /* TrainingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A20000000000000000000004 /* NavigationSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSmokeTests.swift; sourceTree = "<group>"; };
+		A20000000000000000000005 /* TrainingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000006 /* TrainingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000007 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* TrainingOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingOverviewView.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000B /* RoutineCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCatalog.swift; sourceTree = "<group>"; };
+		A2000000000000000000000C /* RoutineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineContent.swift; sourceTree = "<group>"; };
+		A2000000000000000000000D /* RoutineCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCatalogTests.swift; sourceTree = "<group>"; };
+		A2000000000000000000000E /* TrainingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2000000000000000000000F /* RoutineDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDayView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000007 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000008 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000009 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A60000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A60000000000000000000002 /* TrainingApp */,
+				A60000000000000000000003 /* TrainingAppUITests */,
+				A6000000000000000000000B /* TrainingAppTests */,
+				A60000000000000000000004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A60000000000000000000002 /* TrainingApp */ = {
+			isa = PBXGroup;
+			children = (
+				A60000000000000000000005 /* App */,
+				A60000000000000000000006 /* Resources */,
+				A60000000000000000000007 /* Features */,
+			);
+			path = TrainingApp;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000003 /* TrainingAppUITests */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000004 /* NavigationSmokeTests.swift */,);
+			path = TrainingAppUITests;
+			sourceTree = "<group>";
+		};
+		A6000000000000000000000B /* TrainingAppTests */ = {
+			isa = PBXGroup;
+			children = (A2000000000000000000000D /* RoutineCatalogTests.swift */,);
+			path = TrainingAppTests;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000005 /* TrainingApp.app */,
+				A20000000000000000000006 /* TrainingAppUITests.xctest */,
+				A2000000000000000000000E /* TrainingAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000005 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000001 /* TrainingApp.swift */,
+				A20000000000000000000002 /* AppRootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000006 /* Resources */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000003 /* Localizable.xcstrings */,);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000007 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A60000000000000000000008 /* Routine */,
+				A60000000000000000000009 /* History */,
+				A6000000000000000000000A /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000008 /* Routine */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000007 /* RoutineView.swift */, A20000000000000000000008 /* TrainingOverviewView.swift */, A2000000000000000000000B /* RoutineCatalog.swift */, A2000000000000000000000C /* RoutineContent.swift */, A2000000000000000000000F /* RoutineDayView.swift */,);
+			path = Routine;
+			sourceTree = "<group>";
+		};
+		A60000000000000000000009 /* History */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000009 /* HistoryView.swift */,);
+			path = History;
+			sourceTree = "<group>";
+		};
+		A6000000000000000000000A /* Settings */ = {
+			isa = PBXGroup;
+			children = (A2000000000000000000000A /* SettingsView.swift */,);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A70000000000000000000001 /* TrainingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000000000000000000002 /* Build configuration list for PBXNativeTarget "TrainingApp" */;
+			buildPhases = (
+				A40000000000000000000003 /* Sources */,
+				A40000000000000000000001 /* Frameworks */,
+				A40000000000000000000005 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = TrainingApp;
+			productName = TrainingApp;
+			productReference = A20000000000000000000005 /* TrainingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A70000000000000000000003 /* TrainingAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8000000000000000000000A /* Build configuration list for PBXNativeTarget "TrainingAppTests" */;
+			buildPhases = (
+				A40000000000000000000007 /* Sources */,
+				A40000000000000000000008 /* Frameworks */,
+				A40000000000000000000009 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = (A90000000000000000000002 /* PBXTargetDependency */,);
+			name = TrainingAppTests;
+			productName = TrainingAppTests;
+			productReference = A2000000000000000000000E /* TrainingAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A70000000000000000000002 /* TrainingAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000000000000000000003 /* Build configuration list for PBXNativeTarget "TrainingAppUITests" */;
+			buildPhases = (
+				A40000000000000000000004 /* Sources */,
+				A40000000000000000000002 /* Frameworks */,
+				A40000000000000000000006 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = (A90000000000000000000001 /* PBXTargetDependency */,);
+			name = TrainingAppUITests;
+			productName = TrainingAppUITests;
+			productReference = A20000000000000000000006 /* TrainingAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A50000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					A70000000000000000000001 = {CreatedOnToolsVersion = 27.0; LastSwiftMigration = 2700; };
+					A70000000000000000000002 = {CreatedOnToolsVersion = 27.0; LastSwiftMigration = 2700; TestTargetID = A70000000000000000000001; };
+				A70000000000000000000003 = {CreatedOnToolsVersion = 27.0; LastSwiftMigration = 2700; TestTargetID = A70000000000000000000001; };
+				};
+			};
+			buildConfigurationList = A80000000000000000000001 /* Build configuration list for PBXProject "TrainingApp" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base,);
+			mainGroup = A60000000000000000000001;
+			productRefGroup = A60000000000000000000004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A70000000000000000000001 /* TrainingApp */,
+				A70000000000000000000002 /* TrainingAppUITests */,
+				A70000000000000000000003 /* TrainingAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A40000000000000000000005 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000003 /* Localizable.xcstrings in Resources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000006 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A40000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000001 /* TrainingApp.swift in Sources */, A10000000000000000000002 /* AppRootView.swift in Sources */, A10000000000000000000005 /* RoutineView.swift in Sources */, A10000000000000000000006 /* TrainingOverviewView.swift in Sources */, A10000000000000000000007 /* HistoryView.swift in Sources */, A10000000000000000000008 /* SettingsView.swift in Sources */, A10000000000000000000009 /* RoutineCatalog.swift in Sources */, A1000000000000000000000A /* RoutineContent.swift in Sources */, A1000000000000000000000C /* RoutineDayView.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+		A40000000000000000000004 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000004 /* NavigationSmokeTests.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A90000000000000000000001 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A70000000000000000000001 /* TrainingApp */; targetProxy = A30000000000000000000001 /* PBXContainerItemProxy */; };
+		A90000000000000000000002 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A70000000000000000000001 /* TrainingApp */; targetProxy = A30000000000000000000002 /* PBXContainerItemProxy */; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A80000000000000000000004 /* Project Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; SDKROOT = iphoneos; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; }; name = Debug; };
+		A80000000000000000000005 /* Project Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; SDKROOT = iphoneos; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; }; name = Release; };
+		A80000000000000000000006 /* App Debug */ = {isa = XCBuildConfiguration; buildSettings = {ENABLE_TESTABILITY = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = TrainingApp; INFOPLIST_KEY_UILaunchScreen_Generation = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		A80000000000000000000007 /* App Release */ = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = TrainingApp; INFOPLIST_KEY_UILaunchScreen_Generation = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		A80000000000000000000008 /* UI Tests Debug */ = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator.uitests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = TrainingApp; }; name = Debug; };
+		A80000000000000000000009 /* UI Tests Release */ = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator.uitests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = TrainingApp; }; name = Release; };
+		A8000000000000000000000A /* Build configuration list for PBXNativeTarget "TrainingAppTests" */ = {isa = XCConfigurationList; buildConfigurations = (A8000000000000000000000B /* Tests Debug */, A8000000000000000000000C /* Tests Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A8000000000000000000000B /* Tests Debug */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrainingApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TrainingApp"; TEST_TARGET_NAME = TrainingApp; }; name = Debug; };
+		A8000000000000000000000C /* Tests Release */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 27.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.trainingapp.simulator.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrainingApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TrainingApp"; TEST_TARGET_NAME = TrainingApp; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80000000000000000000001 /* Build configuration list for PBXProject "TrainingApp" */ = {isa = XCConfigurationList; buildConfigurations = (A80000000000000000000004 /* Project Debug */, A80000000000000000000005 /* Project Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A80000000000000000000002 /* Build configuration list for PBXNativeTarget "TrainingApp" */ = {isa = XCConfigurationList; buildConfigurations = (A80000000000000000000006 /* App Debug */, A80000000000000000000007 /* App Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A80000000000000000000003 /* Build configuration list for PBXNativeTarget "TrainingAppUITests" */ = {isa = XCConfigurationList; buildConfigurations = (A80000000000000000000008 /* UI Tests Debug */, A80000000000000000000009 /* UI Tests Release */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+/* End PBXFileSystemSynchronizedRootGroup section */
+	};
+	rootObject = A50000000000000000000001 /* Project object */;
+}
