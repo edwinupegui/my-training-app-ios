@@ -1,0 +1,90 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "foundation.placeholder.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine, history, and settings are not implemented yet." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La rutina, el historial y los ajustes aún no están implementados." } }
+      }
+    },
+    "foundation.placeholder.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training App Foundation" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Base de la aplicación de entrenamiento" } }
+      }
+    },
+    "history.placeholder.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Workout history is planned; no training data is stored." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El historial de entrenamientos está previsto; no se guardan datos de entrenamiento." } }
+      }
+    },
+    "history.placeholder.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
+      }
+    },
+    "routine.placeholder.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine browsing and workout tracking are planned; they are not available yet." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "La consulta de rutinas y el registro de entrenamientos están previstos, pero aún no están disponibles." } }
+      }
+    },
+    "routine.placeholder.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rutina" } }
+      }
+    },
+    "routine.training-overview.link" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training overview" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumen del entrenamiento" } }
+      }
+    },
+    "settings.placeholder.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings are planned; no training or privacy options are available yet." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Los ajustes están previstos; aún no hay opciones de entrenamiento ni de privacidad." } }
+      }
+    },
+    "settings.placeholder.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+      }
+    },
+    "tab.history" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
+      }
+    },
+    "tab.routine" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rutina" } }
+      }
+    },
+    "tab.settings" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+      }
+    },
+    "training-overview.placeholder.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training plans and sessions are planned; none are available yet." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Los planes y las sesiones de entrenamiento están previstos; aún no hay ninguno disponible." } }
+      }
+    },
+    "training-overview.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training overview" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumen del entrenamiento" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

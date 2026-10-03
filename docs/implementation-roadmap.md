@@ -1,24 +1,28 @@
 # Implementation roadmap
 
-## Delivery rule
+## Delivery and authorization gate
 
-This repository contains no implementation. The units below are future work, ordered by dependencies. Each unit must add its own focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a future behavior-level test fails before its implementation and passes after; it is not evidence for this documentation change.
+This repository contains the minimal F1 app foundation; product features remain future work ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
 
-Start only after relevant product decisions are closed in [scope](product-scope.md#decisions-required-before-affected-work). Do not add a framework/package dependency without a separately approved need. Keep test seams for clock, persistence, and notification scheduling so lifecycle behavior does not require waiting in real time.
+The owner approved the simulator-first F1 shell and the bounded F2 placeholder-navigation work on 2026-10-02. Neither authorization covers training-product features. Before each further unit, obtain its explicit authorization and close relevant decisions in [scope](product-scope.md#decisions-required-before-affected-work), including the explicit session pause semantics where lifecycle/timer behavior is involved. Do not add a framework/package dependency without a separately approved need. Keep test seams for clock, persistence, and notification scheduling so lifecycle behavior does not require waiting in real time.
 
 ## Work units
 
-### 0. Project foundation and support decision
+### 0. Project foundation and support decision — F1/F2 shell established
 
-**Depends on:** confirm iOS deployment minimum, Xcode/Swift selection, signing path, bundle identity ownership, and target device support.
+**Depends on:** owner approval for this bounded work unit. The owner approved iPhone-only, iOS 27.0 minimum, simulator-first foundation on 2026-10-02. The provisional bundle identifier is `org.example.trainingapp.simulator`; signing team, provisioning, and owned bundle identity remain deferred until physical installation.
 
-- Create the Xcode project in an independently approved implementation change; this plan creates none.
-- Establish SwiftUI app shell, tab/navigation structure, localization baseline, accessibility settings, build configuration, and CI/local test command documentation.
-- Decide store schema/version ownership and source handling for bundled routine/guide content before committing personal data.
+- Create a native Xcode project with one app target, one XCTest UI target, shared scheme, Swift 6 language mode/strict concurrency, and no third-party dependencies.
+- Establish the minimal SwiftUI placeholder, localization catalog, accessibility identifiers, build configuration, and local build/test command record.
+- Add native Routine, History, and Settings tabs, each with its own `NavigationStack`; Routine links to one honest Training overview placeholder detail. These views own only static local presentation state.
+- Keep the shell direct: no domain/service/layer abstraction, training function, or durable store is justified at this stage; therefore no schema or migration is introduced.
+- Actual routine content, workout/session behavior, stored history, settings functions, timers, backup, and store/schema decisions remain separate, pending units.
 
-**RED/GREEN:** a launch/smoke test verifies app entry and navigation destinations; accessibility smoke checks confirm navigation labels exist. For setup-only configuration there may be no meaningful pre-code behavioral RED—state that narrowly rather than fabricating one.
+**F1 evidence:** setup-only configuration has no meaningful pre-code behavioral RED; its entry-existence UI test remains in the suite.
 
-**Acceptance:** clean build/test on declared toolchain; app launches on simulator and target physical iPhone; no credentials, personal metrics, generated state, or private backups are tracked.
+**F2 RED/GREEN:** the focused navigation assertion RED was independently recovered by R1 from the partial result's staged runner diagnostics: `testNavigationDestinationsAndReturn` failed because native tabs were missing (11.191 seconds of test execution; wrapper timeout happened later during finalization). The navigation UI was then added; the first GREEN attempt exposed that accessibility identifiers on custom tab labels do not map to native tab buttons, so the test now pins English locale and queries native tab labels while retaining identifiers for content anchors. The subsequent simulator run passed both UI tests. Exact commands, evidence, warnings, and bundle paths are recorded in [`ios-foundation.md`](ios-foundation.md).
+
+**Acceptance boundary:** simulator build and launch/navigation smoke tests on the declared toolchain. Physical-device install/signing, owned bundle identity, VoiceOver, Dynamic Type, Reduce Motion/Transparency, and native material review remain pending. No credentials, personal metrics, generated state, or private backups are tracked.
 
 ### 1. Domain model, validation, and prescribed content
 
