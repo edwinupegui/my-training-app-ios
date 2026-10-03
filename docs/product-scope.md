@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Plan a native, private training companion that lets one person follow a familiar weekly routine, adapt the active session, record each set, and recover data without a service account. This remains a product specification: only the minimal F1 SwiftUI foundation placeholder is implemented. No training or durable-data feature described below exists yet.
+Plan a native, private training companion that lets one person follow a familiar weekly routine, adapt the active session, record each set, and recover data without a service account. This remains a product specification: the F1/F2 shell and the bounded B1/B2 offline routine week → day → prescription browsing slice are implemented. Exercise guides, workout/session behavior and durable-data features described below do not yet exist.
 
 ## Product baseline
 
@@ -16,7 +16,7 @@ Plan a native, private training companion that lets one person follow a familiar
 | Backup | Explicitly export and import a portable, versioned file. | No automatic cloud sync or backend. User chooses the destination. |
 | Language | Initial UI may be Spanish, matching the existing reference. | Localization structure and additional languages are not a launch blocker unless later decided. |
 | Design | Native SwiftUI with a deliberate Liquid Glass visual hierarchy. | Do not approximate system materials with web CSS blur. |
-| F1 shell | Show a localized, accessible foundation placeholder. | No navigation, domain types, persistence, timers, or feature completion claims. |
+| F1/F2 shell and routine browsing | Show native Routine, History and Settings tabs; browse seven bundled days and their source prescriptions/recovery rows offline. | Full exercise guides, sessions/logging, history records, settings actions, persistence, timers and backup remain unimplemented. |
 
 Reference evidence (read-only): the weekly split and prescribed routine data start in [`../edwin-training-app/src/pages/index.astro`](../../edwin-training-app/src/pages/index.astro#L5) and its routine definitions at [line 15](../../edwin-training-app/src/pages/index.astro#L15). Exercise-guide fields are represented in [`../edwin-training-app/src/data/exercises.ts`](../../edwin-training-app/src/data/exercises.ts#L1). Nutrition and progress advice are in the reference page at [nutrition](../../edwin-training-app/src/pages/index.astro#L167) and [progress](../../edwin-training-app/src/pages/index.astro#L175). These are reference semantics, not a request to copy personal metrics or assets.
 
@@ -43,9 +43,9 @@ The reference progress persistence is only four weekly checkbox booleans in brow
 
 Local storage is not a promise that iOS device backups exclude app data. The device owner may also choose a cloud-backed Files destination for a manual export. The data-path distinction is described in [architecture](architecture.md#backup-format-and-restore-safety).
 
-## Current F1 foundation authorization
+## Current implementation authorizations
 
-On 2026-10-02 the owner approved a minimal simulator-first foundation. The iPhone-only project uses iOS 27.0 as its approved minimum and the provisional simulator bundle identifier `org.example.trainingapp.simulator`; no team or provisioning profile is configured. Signing and the owned bundle identity remain deferred until physical installation. This authorization covers only the shell and baseline launch UI test, not F2 navigation or product features. The current shell keeps SwiftUI state directly local; it has no extra abstraction or durable store, so no schema or migration is introduced. See [iOS foundation evidence](ios-foundation.md).
+On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. Authorization does not extend to guide prose, session behavior/logging, history data, timers, persistence, backup, or further product features. See [iOS foundation evidence](ios-foundation.md) and [routine browsing evidence](routine-browsing.md).
 
 ## Acceptance checklist for future product implementation
 

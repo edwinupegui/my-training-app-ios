@@ -25,6 +25,84 @@
         "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
       }
     },
+    "routine.catalog.unavailable.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The routine content is unavailable because its validation failed." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El contenido de la rutina no está disponible porque no superó la validación." } }
+      }
+    },
+    "routine.field.cue" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cue" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Clave" } }
+      }
+    },
+    "routine.field.prescription" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prescription" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Prescripción" } }
+      }
+    },
+    "routine.field.reference" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reference" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Referencia" } }
+      }
+    },
+    "routine.field.rest" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Descanso" } }
+      }
+    },
+    "routine.field.target" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Target" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Objetivo" } }
+      }
+    },
+    "routine.kind.recovery" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recovery" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recuperación" } }
+      }
+    },
+    "routine.kind.rest" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Descanso" } }
+      }
+    },
+    "routine.kind.strength" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Strength" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fuerza" } }
+      }
+    },
+    "routine.section.exercises" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exercises" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ejercicios" } }
+      }
+    },
+    "routine.section.recovery" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recovery" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recuperación" } }
+      }
+    },
+    "routine.section.rest" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest day" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Día de descanso" } }
+      }
+    },
+    "routine.week.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This week" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esta semana" } }
+      }
+    },
     "routine.placeholder.message" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine browsing and workout tracking are planned; they are not available yet." } },
