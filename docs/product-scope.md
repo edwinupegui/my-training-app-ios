@@ -49,6 +49,10 @@ On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (i
 
 On 2026-10-04 the owner authorized incremental implementation of the first useful offline release: sessions/set logging, local persistence/recovery, rest/performance/history, versioned manual backup, and accessibility. The pure session-domain slice provides validated value types and snapshots; U3a/U3b provide durable begin/record/edit/finish/abandon/recover with fresh per-operation contexts, validated serialization, and explicit save boundaries. This adapter remains unconnected to app composition or UI. Set-entry and lifecycle controls in the UI, rest/performance/history, manual backup, and accessibility remain future work. No elapsed-duration pause state is authorized; an interrupted active session may continue. The owner accepts ordinary OS-managed device backups, including enabled iCloud Backup; this does not authorize app sync or exclusion from OS backups. Restore/conflict policy, encryption and key recovery remain U6 gates. iOS 27.0 is approved. Physical functional test/build evidence does not resolve separate owner confirmation of signing/distribution acceptance. See the [session-domain contract](session-domain.md), [session persistence boundary](session-persistence.md), roadmap, and [exercise-guide evidence](exercise-guides.md).
 
+## Verified cutoff and current work boundary — 2026-10-04
+
+The verified stable-main boundary is U1/U2 and U3a/U3b at `14e4599` (baseline main: `691b915`). The app UI remains the routine and guide browsing shell; the session-domain and persistence APIs are not composed into that UI. U3b's 43-test and build results are historical evidence, not tests run for this cutoff. U4a is paused, incomplete, and unverified on `feat/first-useful-release`; it is not acceptance-ready and must not be described as complete. The owner authorized publishing the verified stable-main cutoff and separately retaining U4a as feature-branch WIP on 2026-10-04. This publication choice does not authorize distribution or additional feature work and does not itself establish that anything has been published.
+
 ## Acceptance checklist for future product implementation
 
 These checks are targets, not evidence that product behavior exists. Each applicable test/device check must be run and recorded in the implementation work.
@@ -72,6 +76,6 @@ These checks are targets, not evidence that product behavior exists. Each applic
 4. **Proposed backup protection:** choose whether backups are encrypted and how keys/passphrases/recovery are handled. Do not select an algorithm/KDF or promise recovery until reviewed.
 5. **Device-backup policy (closed 2026-10-04):** ordinary iOS device backups, including enabled iCloud Backup, are accepted. This is distinct from app sync; do not exclude app data from OS backups. Restore semantics and data protection remain open.
 6. **Proposed measurements scope:** decide whether to include user-entered body measurements at all, and which fields. Never seed real personal values into code or sample backups.
-7. **Signing and bundle ownership:** simulator-only F1 identity is provisional. Choose an owned bundle ID and signing path before physical installation; neither implies an App Store release.
+7. **Signing and distribution:** physical-device development signing, installation, and app launch are confirmed. Long-term distribution/signing acceptance remains separate; the development installation does not authorize App Store or TestFlight release.
 
 Close only decisions relevant to an implementation unit; no new questionnaire is required now. Product-plan approval alone does not authorize additional implementation.
