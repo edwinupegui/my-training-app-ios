@@ -4,6 +4,7 @@ import XCTest
 final class NavigationSmokeTests: XCTestCase {
     func testLaunchShowsFoundationEntry() {
         let app = XCUIApplication()
+        app.launchArguments += ["--training-ui-test-store-token", UUID().uuidString]
         app.launch()
 
         XCTAssertTrue(app.descendants(matching: .any)["foundation.entry"].exists)
@@ -182,7 +183,10 @@ final class NavigationSmokeTests: XCTestCase {
     }
 
     private func launchInEnglish(_ app: XCUIApplication) {
-        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launchArguments += [
+            "-AppleLanguages", "(en)", "-AppleLocale", "en_US",
+            "--training-ui-test-store-token", UUID().uuidString
+        ]
         app.launch()
     }
 }

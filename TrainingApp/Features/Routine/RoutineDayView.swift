@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct RoutineDayView: View {
+    @Environment(SessionController.self) private var sessionController
+    @State private var showsSessionStart = false
+
     let day: RoutineDay
     let guideCatalog: ExerciseGuideCatalog
 
@@ -36,6 +39,17 @@ struct RoutineDayView: View {
                         exerciseRow(exercise)
                     }
                 }
+                Section {
+                    if sessionController.activeSession != nil {
+                        Text("session.error.active-exists")
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Button("session.start.action") {
+                            showsSessionStart = true
+                        }
+                        .accessibilityIdentifier("session.start.\(day.id)")
+                    }
+                }
             } else {
                 Section(day.kind == .recovery ? "routine.section.recovery" : "routine.section.rest") {
                     ForEach(day.recoveryItems, id: \.id) { item in
@@ -55,6 +69,11 @@ struct RoutineDayView: View {
         .accessibilityIdentifier("routine.day-detail.\(day.id)")
         .navigationTitle(day.title)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showsSessionStart) {
+            NavigationStack {
+                SessionStartView(day: day)
+            }
+        }
     }
 
     @ViewBuilder

@@ -29,6 +29,11 @@
 		A10000000000000000000014 /* SessionPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* SessionPersistenceTests.swift */; };
 		A10000000000000000000015 /* SessionSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000018 /* SessionSchema.swift */; };
 		A10000000000000000000016 /* SessionPersistenceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* SessionPersistenceDTO.swift */; };
+		A10000000000000000000017 /* SessionFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* SessionFlowUITests.swift */; };
+		A10000000000000000000018 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000021 /* SessionController.swift */; };
+		A10000000000000000000019 /* SessionStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000022 /* SessionStartView.swift */; };
+		A1000000000000000000001A /* ActiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000023 /* ActiveSessionView.swift */; };
+		A1000000000000000000001B /* SessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000024 /* SessionControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@
 		A20000000000000000000017 /* SessionPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPersistenceTests.swift; sourceTree = "<group>"; };
 		A20000000000000000000018 /* SessionSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSchema.swift; sourceTree = "<group>"; };
 		A20000000000000000000019 /* SessionPersistenceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPersistenceDTO.swift; sourceTree = "<group>"; };
+		A20000000000000000000020 /* SessionFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFlowUITests.swift; sourceTree = "<group>"; };
+		A20000000000000000000021 /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		A20000000000000000000022 /* SessionStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStartView.swift; sourceTree = "<group>"; };
+		A20000000000000000000023 /* ActiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionView.swift; sourceTree = "<group>"; };
+		A20000000000000000000024 /* SessionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A20000000000000000000004 /* NavigationSmokeTests.swift */,
+				A20000000000000000000020 /* SessionFlowUITests.swift */,
 			);
 			path = TrainingAppUITests;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 				A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */,
 				A20000000000000000000015 /* SessionDomainTests.swift */,
 				A20000000000000000000017 /* SessionPersistenceTests.swift */,
+				A20000000000000000000024 /* SessionControllerTests.swift */,
 			);
 			path = TrainingAppTests;
 			sourceTree = "<group>";
@@ -223,6 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				A20000000000000000000014 /* SessionDomain.swift */,
+				A20000000000000000000021 /* SessionController.swift */,
+				A20000000000000000000022 /* SessionStartView.swift */,
+				A20000000000000000000023 /* ActiveSessionView.swift */,
 				A6000000000000000000000D /* Persistence */,
 			);
 			path = Session;
@@ -375,6 +390,9 @@
 				A10000000000000000000013 /* SessionPersistenceAdapter.swift in Sources */,
 				A10000000000000000000015 /* SessionSchema.swift in Sources */,
 				A10000000000000000000016 /* SessionPersistenceDTO.swift in Sources */,
+				A10000000000000000000018 /* SessionController.swift in Sources */,
+				A10000000000000000000019 /* SessionStartView.swift in Sources */,
+				A1000000000000000000001A /* ActiveSessionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000000000000000000004 /* NavigationSmokeTests.swift in Sources */,
+				A10000000000000000000017 /* SessionFlowUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +413,7 @@
 				A1000000000000000000000F /* ExerciseGuideCatalogTests.swift in Sources */,
 				A10000000000000000000012 /* SessionDomainTests.swift in Sources */,
 				A10000000000000000000014 /* SessionPersistenceTests.swift in Sources */,
+				A1000000000000000000001B /* SessionControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +436,7 @@
 		A80000000000000000000004 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;

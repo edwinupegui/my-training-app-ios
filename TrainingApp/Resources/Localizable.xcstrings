@@ -508,6 +508,192 @@
         }
       }
     },
+    "common.cancel" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cancelar" } }
+      }
+    },
+    "routine.session.continue" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Continue active session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Continuar sesión activa" } }
+      }
+    },
+    "session.abandon" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Abandon session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Abandonar sesión" } }
+      }
+    },
+    "session.abandon.confirm" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Abandon" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Abandonar" } }
+      }
+    },
+    "session.abandon.confirmation.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This ends the active session without marking it complete." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esto termina la sesión activa sin marcarla como completada." } }
+      }
+    },
+    "session.abandon.confirmation.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Abandon this session?" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Abandonar esta sesión?" } }
+      }
+    },
+    "session.active.set-count" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets recorded: %lld" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Series registradas: %lld" } }
+      }
+    },
+    "session.active.started-at" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Session start time" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Hora de inicio de la sesión" } }
+      }
+    },
+    "session.active.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Active session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Sesión activa" } }
+      }
+    },
+    "session.active.unavailable.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No active session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No hay una sesión activa" } }
+      }
+    },
+    "session.active.variant-selected" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Selected variant" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Variante seleccionada" } }
+      }
+    },
+    "session.error.abandon" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t save the abandon action. Your session is unchanged; try again." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo guardar el abandono. La sesión no cambió; inténtalo de nuevo." } }
+      }
+    },
+    "session.error.active-exists" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "An active session already exists. Continue it instead of starting another." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ya existe una sesión activa. Continúala en vez de iniciar otra." } }
+      }
+    },
+    "session.error.finish" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t save completion. Your session is unchanged; try again." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo guardar la finalización. La sesión no cambió; inténtalo de nuevo." } }
+      }
+    },
+    "session.error.start" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t save this session. Your choices are still here; try again." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo guardar la sesión. Tus opciones siguen aquí; inténtalo de nuevo." } }
+      }
+    },
+    "session.error.storage-read" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The session store couldn’t be opened. No data was removed; check available storage and retry." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo abrir el almacenamiento de sesiones. No se eliminó ningún dato; revisa el espacio disponible e inténtalo de nuevo." } }
+      }
+    },
+    "session.error.store-unavailable" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Session storage is unavailable. Retry opening the store before continuing." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El almacenamiento de sesiones no está disponible. Vuelve a abrirlo antes de continuar." } }
+      }
+    },
+    "session.finish" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Finish session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Finalizar sesión" } }
+      }
+    },
+    "session.finish.confirm" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Finish" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Finalizar" } }
+      }
+    },
+    "session.finish.confirmation.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This marks the session complete. You can’t add sets in this slice." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esto marca la sesión como completada. En esta etapa no puedes añadir series." } }
+      }
+    },
+    "session.finish.confirmation.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Finish this session?" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Finalizar esta sesión?" } }
+      }
+    },
+    "session.set-entry.unavailable.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set entry is not integrated in this slice." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El registro de series aún no está integrado en esta etapa." } }
+      }
+    },
+    "session.start.action" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Iniciar sesión" } }
+      }
+    },
+    "session.start.confirm" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Iniciar sesión" } }
+      }
+    },
+    "session.start.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Review session" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Revisar sesión" } }
+      }
+    },
+    "session.storage.retry" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Retry storage access" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reintentar acceso al almacenamiento" } }
+      }
+    },
+    "session.storage.unavailable.message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The session store couldn’t be opened. No data was deleted. Check available storage, then retry." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo abrir el almacenamiento de sesiones. No se eliminó ningún dato. Revisa el espacio disponible y vuelve a intentarlo." } }
+      }
+    },
+    "session.storage.unavailable.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Session storage unavailable" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Almacenamiento de sesiones no disponible" } }
+      }
+    },
+    "session.variant.not-selected" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not selected" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No seleccionada" } }
+      }
+    },
+    "session.variant.required" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose one variant" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elige una variante" } }
+      }
+    },
+    "session.variant.selected" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Selected" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Seleccionada" } }
+      }
+    },
     "settings.placeholder.message" : {
       "localizations" : {
         "en" : {
