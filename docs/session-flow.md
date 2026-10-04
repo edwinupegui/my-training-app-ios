@@ -6,8 +6,8 @@ U4a adds a partial first-use session flow on `feat/first-useful-release`. It is 
 
 - The routine-day entry point composes session start and active-session views with a session controller and the local persistence adapter.
 - Starting a session presents the required choices before creating it. An unfinished active session can be resumed.
-- The active view exposes set entry plus finish and abandon actions through the controller.
-- Debug builds use UUID-backed test stores to keep development data isolated. Store setup fails closed when its required safeguards are unavailable; there is no production-data reset or deletion path.
+- The active view presents a session snapshot summary and finish/abandon confirmations. Set-entry and editing UI remain future U4b work.
+- Only DEBUG launches with validated UI-test UUID arguments select isolated synthetic stores; ordinary launches use the production store. Unsupported or malformed test arguments are rejected rather than falling back to production data. There is no production-data reset or deletion path.
 
 These are implementation surfaces, not verified end-to-end behavior. The persistence adapter's U3a/U3b contract is documented separately; U4a composition does not establish UI correctness or lifecycle recovery guarantees.
 
@@ -15,7 +15,7 @@ These are implementation surfaces, not verified end-to-end behavior. The persist
 
 A genuine initial RED was one failed assertion. Four subsequent startup failures were diagnosed as a missing Swift `DEBUG` compilation condition in the project configuration; the project was corrected and compiler invocation with `-DDEBUG` was confirmed, with Release configuration unchanged.
 
-The final build succeeded, but the test runner failed to communicate before tests ran. The simulator reported a passcode-required state and a network/TCP issue; the cause of the runner failure is unknown. Therefore there is no observed GREEN, no unit/regression or navigation/UI pass, no standalone-build evidence, and no VoiceOver verification for U4a. No further device tests or development were authorized today.
+The final build succeeded, but the test runner failed to communicate before tests ran. The physical phone subsequently required a passcode and reported network/TCP transport; neither observation establishes the cause of the runner failure. Therefore there is no observed GREEN, no unit/regression or navigation/UI pass, no standalone-build evidence, and no VoiceOver verification for U4a. No further device tests or development were authorized today.
 
 ## Use boundary
 
