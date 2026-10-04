@@ -79,7 +79,7 @@ Export a documented, versioned, portable domain DTO containing only selected app
 
 Encryption is **not selected**. Documented options may include platform-provided file protection and/or an encrypted export envelope. CryptoKit supplies cryptographic primitives but does not by itself provide a password-based key derivation function. Do not invent or imply an approved KDF, iteration count, cipher suite, key escrow, recovery mechanism, or algorithm API. A design review must choose these details and threat model before encrypted backups are claimed.
 
-Manual export uses the user's chosen Files destination. A cloud-backed Files provider can sync that chosen file; this app does not sync it automatically. Local app data may be included in iOS/iCloud device backups depending on platform configuration; excluding it is an unresolved product/privacy decision. Never describe local-only storage as equivalent to no cloud copies.
+Manual export uses the user's chosen Files destination. A cloud-backed Files provider can sync that chosen file; this app does not sync it automatically. The owner accepts ordinary iOS/iCloud device backups, and this app does not exclude its store from OS backups. This is not app sync; never describe local-only storage as equivalent to no cloud copies.
 
 ## Data access and privacy
 

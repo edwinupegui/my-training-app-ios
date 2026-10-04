@@ -1,8 +1,7 @@
 import Foundation
 import SwiftData
 
-// One adapter owns one container/context. Main-actor serialization makes check-and-save
-// begin operations atomic across adapter instances in this process.
+// Main-actor operations use a fresh context so separate adapters observe the latest durable rows.
 enum SessionPersistenceError: Error, Equatable {
     case activeSessionExists
     case unknownSession
@@ -13,9 +12,7 @@ enum SessionPersistenceError: Error, Equatable {
 @MainActor
 final class SessionPersistenceAdapter {
     private let container: ModelContainer
-    private let context: ModelContext
     private let saveOperation: (ModelContext) throws -> Void
-    private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
 
     init(storeURL: URL, allowsSave: Bool = true, save: ((ModelContext) throws -> Void)? = nil) throws {
@@ -24,16 +21,13 @@ final class SessionPersistenceAdapter {
             "TrainingSessions", schema: schema, url: storeURL, allowsSave: allowsSave, cloudKitDatabase: .none
         )
         container = try ModelContainer(for: schema, configurations: configuration)
-        context = ModelContext(container)
-        context.autosaveEnabled = false
         saveOperation = save ?? { try $0.save() }
-        encoder.outputFormatting = [.sortedKeys]
     }
 
     @discardableResult
     func begin(dayID: String, selectedGuideReferenceIDs: [String: String] = [:]) throws -> TrainingSession {
-        let records = try fetchAll()
-        let sessions = try records.map(decode)
+        let context = makeContext()
+        let sessions = try fetchAll(in: context).map(decode)
         let activeCount = sessions.filter { $0.lifecycle.isOpen }.count
         guard activeCount <= 1 else { throw SessionPersistenceError.multipleActiveSessions }
         guard activeCount == 0 else { throw SessionPersistenceError.activeSessionExists }
@@ -41,49 +35,72 @@ final class SessionPersistenceAdapter {
             routineCatalog: .bundled, guideCatalog: .bundled, dayID: dayID,
             selectedGuideReferenceIDs: selectedGuideReferenceIDs
         )
-        let dto = SessionPersistenceDTO(session: session)
-        let row = try row(from: dto)
+        let row = try row(from: SessionPersistenceDTO(session: session))
         context.insert(row)
-        try commitOrRollback()
+        try commitOrRollback(context)
         return session
     }
 
     func record(_ set: SessionSetRecord, in id: SessionID) throws {
-        let records = try fetchAll()
-        guard let row = records.first(where: { $0.id == id.rawValue.uuidString }) else {
-            throw SessionPersistenceError.unknownSession
-        }
-        var session = try decode(row)
-        try session.record(set)
-        let dto = SessionPersistenceDTO(session: session)
-        try update(row, with: dto)
-        try commitOrRollback()
+        try mutate(id: id) { try $0.record(set) }
+    }
+
+    func edit(_ set: SessionSetRecord, in id: SessionID) throws {
+        try mutate(id: id) { try $0.replace(set) }
+    }
+
+    func finish(_ id: SessionID, at date: Date = Date()) throws {
+        try mutate(id: id) { try $0.complete(at: date) }
+    }
+
+    func abandon(_ id: SessionID, at date: Date = Date()) throws {
+        try mutate(id: id) { try $0.abandon(at: date) }
     }
 
     func recoverActive() throws -> TrainingSession? {
-        let sessions = try fetchAll().map(decode)
+        let sessions = try fetchAll(in: makeContext()).map(decode)
         let active = sessions.filter { $0.lifecycle.isOpen }
         guard active.count <= 1 else { throw SessionPersistenceError.multipleActiveSessions }
         return active.first
     }
 
     func session(id: SessionID) throws -> TrainingSession {
-        guard let row = try fetchAll().first(where: { $0.id == id.rawValue.uuidString }) else {
+        guard let row = try fetchAll(in: makeContext()).first(where: { $0.id == id.rawValue.uuidString }) else {
             throw SessionPersistenceError.unknownSession
         }
         return try decode(row)
     }
 
     func activeSessionCount() throws -> Int {
-        try fetchAll().map(decode).filter { $0.lifecycle.isOpen }.count
+        try fetchAll(in: makeContext()).map(decode).filter { $0.lifecycle.isOpen }.count
     }
 
-    private func fetchAll() throws -> [PersistedSession] {
+    private func mutate(id: SessionID, operation: (inout TrainingSession) throws -> Void) throws {
+        let context = makeContext()
+        guard let row = try fetchAll(in: context).first(where: { $0.id == id.rawValue.uuidString }) else {
+            throw SessionPersistenceError.unknownSession
+        }
+        var session = try decode(row)
+        try operation(&session)
+        try update(row, with: SessionPersistenceDTO(session: session))
+        try commitOrRollback(context)
+    }
+
+    private func makeContext() -> ModelContext {
+        let context = ModelContext(container)
+        context.autosaveEnabled = false
+        return context
+    }
+
+    private func fetchAll(in context: ModelContext) throws -> [PersistedSession] {
         try context.fetch(FetchDescriptor<PersistedSession>())
     }
 
     private func decode(_ row: PersistedSession) throws -> TrainingSession {
         do {
+            guard row.payload.count <= SessionPersistenceDTO.maximumPayloadBytes else {
+                throw SessionPersistenceError.invalidStoredSession
+            }
             let dto = try decoder.decode(SessionPersistenceDTO.self, from: row.payload)
             return try dto.validatedSession(
                 rowID: row.id,
@@ -100,25 +117,31 @@ final class SessionPersistenceAdapter {
     }
 
     private func row(from dto: SessionPersistenceDTO) throws -> PersistedSession {
-        PersistedSession(
+        let payload = try validatedPayload(dto)
+        return PersistedSession(
             id: dto.id.uuidString,
             schemaVersion: dto.version,
             lifecycle: dto.lifecycle,
             startedAt: dto.startedAt,
             endedAt: dto.endedAt,
-            payload: try encoder.encode(dto)
+            payload: payload
         )
     }
 
     private func update(_ row: PersistedSession, with dto: SessionPersistenceDTO) throws {
+        let payload = try validatedPayload(dto)
         row.schemaVersion = dto.version
         row.lifecycle = dto.lifecycle
         row.startedAt = dto.startedAt
         row.endedAt = dto.endedAt
-        row.payload = try encoder.encode(dto)
+        row.payload = payload
     }
 
-    private func commitOrRollback() throws {
+    private func validatedPayload(_ dto: SessionPersistenceDTO) throws -> Data {
+        try dto.encodedPayload()
+    }
+
+    private func commitOrRollback(_ context: ModelContext) throws {
         do {
             try saveOperation(context)
         } catch {

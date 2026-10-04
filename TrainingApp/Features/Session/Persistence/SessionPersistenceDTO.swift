@@ -1,6 +1,11 @@
 import Foundation
 
 struct SessionPersistenceDTO: Codable {
+    // Shared read/write safety envelope for one persisted session aggregate.
+    static let maximumPayloadBytes = 1_048_576
+    static let maximumSetCount = 10_000
+    static let maximumExerciseCount = 1_000
+
     let version: Int
     let id: UUID
     let startedAt: Date
@@ -78,6 +83,20 @@ struct SessionPersistenceDTO: Codable {
         }
     }
 
+    func encodedPayload() throws -> Data {
+        _ = try validatedSession(
+            rowID: id.uuidString, rowVersion: version, rowLifecycle: lifecycle,
+            rowStartedAt: startedAt, rowEndedAt: endedAt
+        )
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys]
+        let payload = try encoder.encode(self)
+        guard payload.count <= Self.maximumPayloadBytes else {
+            throw SessionPersistenceError.invalidStoredSession
+        }
+        return payload
+    }
+
     func validatedSession(rowID: String, rowVersion: Int, rowLifecycle: String, rowStartedAt: Date, rowEndedAt: Date?) throws -> TrainingSession {
         guard version == 1, rowVersion == version,
               rowID == id.uuidString,
@@ -85,8 +104,8 @@ struct SessionPersistenceDTO: Codable {
               rowStartedAt == startedAt,
               rowEndedAt == endedAt,
               startedAt.timeIntervalSince1970.isFinite,
-              sets.count <= 10_000,
-              snapshot.exercises.count <= 1_000 else { throw SessionPersistenceError.invalidStoredSession }
+              sets.count <= Self.maximumSetCount,
+              snapshot.exercises.count <= Self.maximumExerciseCount else { throw SessionPersistenceError.invalidStoredSession }
 
         let exercises = snapshot.exercises.map {
             SessionExerciseSnapshot(

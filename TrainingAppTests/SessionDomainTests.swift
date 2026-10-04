@@ -261,6 +261,36 @@ struct SessionDomainTests {
         }
     }
 
+    @Test func replacementPreservesSetIdentityAndRejectsUnknownClosedOrReorderedSet() throws {
+        var session = try start(at: Date(timeIntervalSince1970: 1_800_000_000))
+        let original = try record(exerciseID: "monday-machine-chest-press", order: 1, weight: 20, rir: 2)
+        try session.record(original)
+        let edited = try SessionSetRecord(
+            id: original.id, exerciseID: original.exerciseID, order: original.order,
+            load: .external(try ExternalLoad(value: 35, unit: .pounds)), repetitions: 10, rir: 1, side: .left
+        )
+        try session.replace(edited)
+        #expect(session.sets == [edited])
+        #expect(session.sets[0].id == original.id)
+
+        let changedExercise = try SessionSetRecord(
+            id: original.id, exerciseID: "monday-machine-incline-press", order: 1,
+            load: .bodyweight(addedLoad: nil), repetitions: 10
+        )
+        #expect(throws: SessionDomainError.setIdentityChange) { try session.replace(changedExercise) }
+        let changedOrder = try SessionSetRecord(
+            id: original.id, exerciseID: original.exerciseID, order: 2,
+            load: .bodyweight(addedLoad: nil), repetitions: 10
+        )
+        #expect(throws: SessionDomainError.setIdentityChange) { try session.replace(changedOrder) }
+        let unknown = try record(exerciseID: original.exerciseID, order: 1, weight: 1)
+        #expect(throws: SessionDomainError.unknownSet) { try session.replace(unknown) }
+
+        try session.complete(at: Date(timeIntervalSince1970: 1_800_000_010))
+        #expect(throws: SessionDomainError.closedSession) { try session.replace(edited) }
+        #expect(session.sets == [edited])
+    }
+
     @Test func lifecycleRejectsAnEndBeforeSessionStart() throws {
         let startedAt = Date(timeIntervalSince1970: 1_800_000_000)
         var session = try start(at: startedAt)

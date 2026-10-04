@@ -32,6 +32,8 @@ enum SessionDomainError: Error, Equatable, Sendable {
     case invalidSetOrder
     case unknownExercise(String)
     case duplicateSetID
+    case unknownSet
+    case setIdentityChange
     case invalidLifecycleTransition
     case closedSession
     case invalidRecoveredData
@@ -236,6 +238,21 @@ struct TrainingSession: Equatable, Sendable {
         let nextOrder = sets.filter { $0.exerciseID == exercise.sourceExerciseID }.count + 1
         guard set.order == nextOrder else { throw SessionDomainError.invalidSetOrder }
         sets.append(set)
+    }
+
+    mutating func replace(_ replacement: SessionSetRecord) throws {
+        try requireActive()
+        guard let index = sets.firstIndex(where: { $0.id == replacement.id }) else {
+            throw SessionDomainError.unknownSet
+        }
+        let existing = sets[index]
+        guard replacement.exerciseID == existing.exerciseID, replacement.order == existing.order else {
+            throw SessionDomainError.setIdentityChange
+        }
+        guard snapshot.exercise(id: replacement.exerciseID) != nil else {
+            throw SessionDomainError.unknownExercise(replacement.exerciseID)
+        }
+        sets[index] = replacement
     }
 
     mutating func complete(at date: Date = Date()) throws {

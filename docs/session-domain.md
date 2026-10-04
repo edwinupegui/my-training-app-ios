@@ -8,11 +8,11 @@ The session feature currently contains a Foundation-only value model for creatin
 - Set records require a nonblank exercise identity, positive per-exercise order and repetitions, finite nonnegative load, and nonnegative optional RIR. Missing RIR remains distinct from zero. There is no arbitrary upper magnitude limit.
 - Load mode (external or bodyweight), unit, optional added bodyweight load, and bilateral/left/right side are explicit values.
 - Comparability requires the set records to match their snapshots, the same stable source exercise ID, the same selected guide reference and guide identity, compatible load mode/unit/added-load status, and the same side. Names and ordering do not establish identity.
-- Sessions accept sequential sets and transition from active to completed or abandoned; closed sessions reject further mutations, duplicate set IDs are rejected, and end times cannot precede start times.
+- Sessions accept sequential sets and transition from active to completed or abandoned; closed sessions reject further mutations, duplicate set IDs are rejected, and end times cannot precede start times. Replacing an existing set validates through `SessionSetRecord`, preserves its immutable ID/exercise/order, rejects unknown sets, and cannot mutate a closed session.
 
 ## Deliberate boundary
 
-Routine and guide catalogs remain immutable bundled content. Prescription strings are copied as opaque text, not parsed into set targets. Domain values remain independent of SwiftData. The U3a adapter now persists the aggregate and validates reconstructed values by calling domain constructors/invariants; persistence transactions, durable single-active enforcement, and active-session recovery belong to that adapter, not this domain module. Session adjustments, set editing/deletion, finish/abandon adapter operations, timers, history lookup, UI, and portable backup remain later work units. No elapsed-time pause lifecycle is defined.
+Routine and guide catalogs remain immutable bundled content. Prescription strings are copied as opaque text, not parsed into set targets. Domain values remain independent of SwiftData. The U3a/U3b adapter persists the aggregate, validates reconstructed values by calling domain constructors/invariants, and performs edit/finish/abandon against latest durable rows before explicit save. Session-specific set replacement does not rewrite the source routine or a completed snapshot. Persistence transactions, durable single-active enforcement, and recovery belong to the adapter, not this domain module. Session adjustment UI, timers, history lookup, and portable backup remain later work units. No elapsed-time pause lifecycle is defined.
 
 ## Verification evidence
 
