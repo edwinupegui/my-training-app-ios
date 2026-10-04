@@ -25,6 +25,10 @@
 		A10000000000000000000010 /* ExerciseGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000013 /* ExerciseGuideView.swift */; };
 		A10000000000000000000011 /* SessionDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000014 /* SessionDomain.swift */; };
 		A10000000000000000000012 /* SessionDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000015 /* SessionDomainTests.swift */; };
+		A10000000000000000000013 /* SessionPersistenceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000016 /* SessionPersistenceAdapter.swift */; };
+		A10000000000000000000014 /* SessionPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* SessionPersistenceTests.swift */; };
+		A10000000000000000000015 /* SessionSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000018 /* SessionSchema.swift */; };
+		A10000000000000000000016 /* SessionPersistenceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* SessionPersistenceDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		A20000000000000000000013 /* ExerciseGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideView.swift; sourceTree = "<group>"; };
 		A20000000000000000000014 /* SessionDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDomain.swift; sourceTree = "<group>"; };
 		A20000000000000000000015 /* SessionDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDomainTests.swift; sourceTree = "<group>"; };
+		A20000000000000000000016 /* SessionPersistenceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPersistenceAdapter.swift; sourceTree = "<group>"; };
+		A20000000000000000000017 /* SessionPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPersistenceTests.swift; sourceTree = "<group>"; };
+		A20000000000000000000018 /* SessionSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSchema.swift; sourceTree = "<group>"; };
+		A20000000000000000000019 /* SessionPersistenceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPersistenceDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,14 +204,26 @@
 				A2000000000000000000000D /* RoutineCatalogTests.swift */,
 				A20000000000000000000012 /* ExerciseGuideCatalogTests.swift */,
 				A20000000000000000000015 /* SessionDomainTests.swift */,
+				A20000000000000000000017 /* SessionPersistenceTests.swift */,
 			);
 			path = TrainingAppTests;
+			sourceTree = "<group>";
+		};
+		A6000000000000000000000D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000016 /* SessionPersistenceAdapter.swift */,
+				A20000000000000000000018 /* SessionSchema.swift */,
+				A20000000000000000000019 /* SessionPersistenceDTO.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		A6000000000000000000000C /* Session */ = {
 			isa = PBXGroup;
 			children = (
 				A20000000000000000000014 /* SessionDomain.swift */,
+				A6000000000000000000000D /* Persistence */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -352,6 +372,9 @@
 				A1000000000000000000000E /* ExerciseGuideContent.swift in Sources */,
 				A10000000000000000000010 /* ExerciseGuideView.swift in Sources */,
 				A10000000000000000000011 /* SessionDomain.swift in Sources */,
+				A10000000000000000000013 /* SessionPersistenceAdapter.swift in Sources */,
+				A10000000000000000000015 /* SessionSchema.swift in Sources */,
+				A10000000000000000000016 /* SessionPersistenceDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +393,7 @@
 				A1000000000000000000000B /* RoutineCatalogTests.swift in Sources */,
 				A1000000000000000000000F /* ExerciseGuideCatalogTests.swift in Sources */,
 				A10000000000000000000012 /* SessionDomainTests.swift in Sources */,
+				A10000000000000000000014 /* SessionPersistenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -227,6 +227,40 @@ struct SessionDomainTests {
         #expect(throws: SessionDomainError.closedSession) { try abandoned.record(record(exerciseID: "monday-machine-chest-press", order: 1, weight: 1)) }
     }
 
+    @Test func recoveredSessionsRevalidateSetReferencesOrderingAndLifecycleDates() throws {
+        let instant = Date(timeIntervalSince1970: 1_800_000_000)
+        let original = try start(at: instant)
+        let firstSet = try record(exerciseID: "monday-machine-chest-press", order: 1, weight: 20)
+        var expected = original
+        try expected.record(firstSet)
+        let recovered = try TrainingSession.recovered(
+            id: original.id, startedAt: instant, snapshot: original.snapshot,
+            sets: [firstSet], lifecycle: .active, endedAt: nil
+        )
+        #expect(recovered == expected)
+
+        let orphan = try record(exerciseID: "not-in-snapshot", order: 1, weight: 20)
+        #expect(throws: SessionDomainError.invalidRecoveredData) {
+            try TrainingSession.recovered(
+                id: original.id, startedAt: instant, snapshot: original.snapshot,
+                sets: [orphan], lifecycle: .active, endedAt: nil
+            )
+        }
+        let skippedOrder = try record(exerciseID: "monday-machine-chest-press", order: 2, weight: 20)
+        #expect(throws: SessionDomainError.invalidSetOrder) {
+            try TrainingSession.recovered(
+                id: original.id, startedAt: instant, snapshot: original.snapshot,
+                sets: [skippedOrder], lifecycle: .active, endedAt: nil
+            )
+        }
+        #expect(throws: SessionDomainError.invalidRecoveredData) {
+            try TrainingSession.recovered(
+                id: original.id, startedAt: instant, snapshot: original.snapshot,
+                sets: [], lifecycle: .completed, endedAt: nil
+            )
+        }
+    }
+
     @Test func lifecycleRejectsAnEndBeforeSessionStart() throws {
         let startedAt = Date(timeIntervalSince1970: 1_800_000_000)
         var session = try start(at: startedAt)

@@ -34,6 +34,7 @@ enum SessionDomainError: Error, Equatable, Sendable {
     case duplicateSetID
     case invalidLifecycleTransition
     case closedSession
+    case invalidRecoveredData
 }
 
 enum SessionLoadUnit: String, Equatable, Sendable {
@@ -171,6 +172,43 @@ struct TrainingSession: Equatable, Sendable {
     private(set) var sets: [SessionSetRecord] = []
     private(set) var lifecycle: SessionLifecycle = .active
     private(set) var endedAt: Date?
+
+    static func recovered(
+        id: SessionID,
+        startedAt: Date,
+        snapshot: SessionRoutineSnapshot,
+        sets: [SessionSetRecord],
+        lifecycle: SessionLifecycle,
+        endedAt: Date?
+    ) throws -> TrainingSession {
+        guard startedAt.timeIntervalSince1970.isFinite,
+              !snapshot.routineVersion.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              isStableID(snapshot.dayID),
+              !snapshot.exercises.isEmpty,
+              snapshot.exercises.map(\.order) == Array(1...snapshot.exercises.count),
+              Set(snapshot.exercises.map(\.sourceExerciseID)).count == snapshot.exercises.count,
+              snapshot.exercises.allSatisfy({
+                  isStableID($0.sourceExerciseID) && isStableID($0.selectedGuideReferenceID) && isStableID($0.selectedGuideID)
+              }) else { throw SessionDomainError.invalidRecoveredData }
+
+        var restored = TrainingSession(id: id, startedAt: startedAt, snapshot: snapshot)
+        for set in sets {
+            guard let exercise = snapshot.exercise(id: set.exerciseID),
+                  set.exerciseID == exercise.sourceExerciseID else { throw SessionDomainError.invalidRecoveredData }
+            try restored.record(set)
+        }
+        switch lifecycle {
+        case .active:
+            guard endedAt == nil else { throw SessionDomainError.invalidRecoveredData }
+        case .completed, .abandoned:
+            guard let endedAt, endedAt.timeIntervalSince1970.isFinite, endedAt >= startedAt else {
+                throw SessionDomainError.invalidRecoveredData
+            }
+            restored.lifecycle = lifecycle
+            restored.endedAt = endedAt
+        }
+        return restored
+    }
 
     static func start(
         id: SessionID = SessionID(),

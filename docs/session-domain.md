@@ -12,10 +12,10 @@ The session feature currently contains a Foundation-only value model for creatin
 
 ## Deliberate boundary
 
-Routine and guide catalogs remain immutable bundled content. Prescription strings are copied as opaque text, not parsed into set targets. This domain does not implement persistence, transactions, recovery, active-session uniqueness across stored sessions, session adjustments, set editing/deletion, timers, history lookup, UI, or backup. Those behaviors remain later work units; no elapsed-time pause lifecycle is defined.
+Routine and guide catalogs remain immutable bundled content. Prescription strings are copied as opaque text, not parsed into set targets. Domain values remain independent of SwiftData. The U3a adapter now persists the aggregate and validates reconstructed values by calling domain constructors/invariants; persistence transactions, durable single-active enforcement, and active-session recovery belong to that adapter, not this domain module. Session adjustments, set editing/deletion, finish/abandon adapter operations, timers, history lookup, UI, and portable backup remain later work units. No elapsed-time pause lifecycle is defined.
 
 ## Verification evidence
 
 On 2026-10-04, the focused 13-test session-domain suite and the 28-test unit-test target passed on the paired iPhone 17 (iOS 27.0.1). The physical-device app build succeeded. The focused test includes a negative regression for distinct exercise identities that reuse the same selected guide, and a positive case showing display-name/order changes do not affect the same exercise's comparison. See `build/U2Device-red3-20261004-writer-b653.xcresult`, `build/U2Device-green-20261004-writer-1d93.xcresult`, `build/U2Device-regression-20261004-writer-8eb5.xcresult`, and `build/U2Device-build-20261004-writer-9e21.log`.
 
-These functional checks do not certify persistence/recovery, session UI, accessibility, or owner signing/distribution acceptance. The app's configured bundle/signing choice and any separate owner confirmation remain separate from domain test results.
+These U2 functional checks predate U3a and do not certify persistence/recovery, session UI, accessibility, or owner signing/distribution acceptance. U3a disk-reopen, save-failure, and DTO validation evidence is recorded in [session-persistence.md](session-persistence.md); the app's configured bundle/signing choice and any separate owner confirmation remain separate from domain test results.

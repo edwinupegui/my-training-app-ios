@@ -2,7 +2,7 @@
 
 ## Delivery and authorization gate
 
-This repository contains the F1/F2 native shell, bounded B1/B2 offline routine browsing, and the separately authorized offline guide catalog/navigation slice. The guide delivery chain (PR2–PR5) is merged; current main is `691b915`. The owner authorized incremental implementation of the first useful offline release on 2026-10-04; its session and durable-data behavior remains future work, ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
+This repository contains the F1/F2 native shell, bounded B1/B2 offline routine browsing, the separately authorized offline guide catalog/navigation slice, pure session domain, and the U3a persistence adapter (begin/record/recover only). The guide delivery chain (PR2–PR5) is merged; current main is `691b915`. The owner authorized incremental implementation of the first useful offline release on 2026-10-04; remaining session and durable-data behavior is ordered by dependencies. Each behavior unit must add focused tests before or alongside behavior, demonstrate a passing result, and preserve an honest record of unrun device checks. “RED/GREEN” means a behavior-level test fails before its implementation and passes after; it is not evidence for documentation changes.
 
 The owner approved the simulator-first F1 shell, F2 navigation, and bounded B1/B2 catalog-and-routine-browsing work on 2026-10-02. On 2026-10-03 the owner authorized the bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. On 2026-10-04 the owner authorized incremental first useful offline release implementation, including sessions/set logging, local persistence/recovery, rest/performance/history, versioned manual backup, and accessibility. This authorization is not implementation evidence. No elapsed-duration pause state is authorized; interrupted active sessions may continue. Close relevant backup/privacy decisions in [scope](product-scope.md#decisions-required-before-affected-work) before dependent work. Do not add a framework/package dependency without a separately approved need.
 
@@ -46,21 +46,18 @@ This is a distinct content/navigation slice, not session-domain behavior. It add
 The bounded Foundation-only slice defines set/load/side values, immutable routine snapshots with explicit guide choices, set validation/order, active/completed/abandoned transitions, and stable comparability. Prescription text is opaque and no arbitrary magnitude caps are added. Comparisons require the same source exercise and selected guide reference/identity plus compatible load mode/unit/added-load status and side; display names and order do not confer identity.
 
 - Focused physical iPhone 17 run: 13 domain tests passed; the full domain unit-test target: 28 passed; physical-device app build succeeded. Exact results and the observed same-guide/distinct-exercise RED/GREEN are recorded in [session-domain.md](session-domain.md).
-- Routine and guide catalogs remain immutable. The source has no UI, persistence adapter, durable single-active-session enforcement, adjustments, timer, history, or backup behavior.
+- Routine and guide catalogs remain immutable. U3a later added a local persistence adapter; this pure domain module has no UI, adjustments, timer, history, or portable backup behavior.
 - Functional verification is distinct from signing/distribution owner confirmation and all pending accessibility/release acceptance.
 
-### 2. Local persistence, migrations, and session recovery (future work)
+### 2. Local persistence, migrations, and session recovery — U3a implemented; U3b pending
 
-- Implement the persistence adapter and versioned SwiftData schema; keep domain operations independent of SwiftData details.
-- Implement transactional begin, set-save/edit, completion, and abandonment; enforce the single-active-session invariant.
-- Add migration fixtures and interrupted-migration safeguards. Surface failure without deleting/recreating user data.
-- Persist enough active-session state to restore after force quit, process death, or restart.
+**U3a delivered boundary:** `SessionSchemaV1` stores one session aggregate; the focused adapter exposes begin, record-set, fetch/recover-active with SwiftData isolated behind its own container/context. It validates decoded snapshots and sets through domain constructors, rejects more than one active session, disables autosave, sets CloudKit to none, and only reports mutation success after explicit save. Save errors roll back unsaved context changes and surface to the caller. The adapter is not yet composed into app UI (U4).
 
-**RED:** store/domain tests fail for duplicate active sessions, partial set writes, repeated completion, invalid references, and migration of known prior schema fixtures. Simulate a write failure and an interrupted migration.
+- Physical iPhone 17 focused tests: U3a RED showed the non-durable stub fail reopen and failed-set-preservation behavior (2 failed, 3 passed); the first attempt had an invalid fixture and is not counted as RED. GREEN passed 6 tests; final focused run passed 8. Triangulation passed 8 tests, including concurrent begins through separate adapters, malformed stored DTO rejection, injected failure preservation, and an actual read-only `allowsSave: false` store rejecting a set write without changing the reopened session. Exact bundles: `build/U3aDevice-red-20261004-writer-d7e4.xcresult`, `build/U3aDevice-green-final-20261004-writer-a46c.xcresult`, and `build/U3aDevice-triangulate-20261004-writer-f901.xcresult` (the earlier 6-test GREEN is `...green-20261004-writer-b08a.xcresult`). Full `TrainingAppTests` regression passed 37/0/0 at `build/U3aDevice-regression-20261004-writer-b66d.xcresult`; physical-device build succeeded in `build/U3aDevice-build-20261004-writer-c40f.log`. Test logs use the matching phase prefixes. These establish tested reopen/save cases, not crash-recovery guarantees.
+- Initial SwiftData v1 has no predecessor. Fabricated migration fixtures would not test a real migration; add historical store fixtures and migration/interruption coverage only when a subsequent schema has an actual previous version.
+- U3b still owns set editing/deletion, completion, and abandonment. It must preserve last durable state on failed saves and keep completed source snapshots immutable.
 
-**GREEN:** each failure case leaves consistent durable state; successful set saves appear after a fresh store/relaunch; migration preserves values and provenance.
-
-**Acceptance:** airplane-mode session create/edit/resume/complete/history flow works on device. Force quit and relaunch during an active session; verify the last durable action and clear recovery state. No unrelated history is rewritten by a routine update.
+**Acceptance still pending:** app composition/UI relaunch flow and future force-quit/restart acceptance. Do not infer those product-level guarantees from the focused adapter tests.
 
 ### 3. Rest timer, performance lookup, and history
 
@@ -77,7 +74,7 @@ The bounded Foundation-only slice defines set/load/side values, immutable routin
 
 ### 4. Versioned export/import and recovery
 
-**Gate:** close encryption/key handling, restore policy, device-backup stance, and included data scope. The file format/version is independent of SwiftData schema.
+**Gate:** close encryption/key handling, restore/conflict policy, and included data scope. The owner accepts ordinary iOS device backups, including enabled iCloud Backup; this is not app sync. The file format/version is independent of SwiftData schema.
 
 - Define portable DTO and bounds; encode/export via system document picker, respecting user-selected destination.
 - Decode into temporary state, validate full graph, preview intended change, create safety rollback point, and commit only after approval.
