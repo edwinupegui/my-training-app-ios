@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Plan a native, private training companion that lets one person follow a familiar weekly routine, adapt the active session, record each set, and recover data without a service account. The F1/F2 shell, bounded B1/B2 offline routine week → day → prescription browsing slice, and separately authorized offline exercise-guide catalog/navigation slice are implemented. Workout/session behavior and durable-data features described below remain future work.
+Build a native, private training companion that lets one person follow a familiar weekly routine, adapt an active session, record sets, and recover data without a service account. The F1/F2 shell, B1/B2 offline routine browsing, and separately authorized offline exercise-guide catalog/navigation slice are implemented. On 2026-10-04 the owner authorized incremental implementation of the first useful offline release; session behavior and durable-data features remain future work until implemented and verified.
 
 ## Product baseline
 
@@ -45,9 +45,9 @@ Local storage is not a promise that iOS device backups exclude app data. The dev
 
 ## Current implementation authorizations
 
-On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. On 2026-10-03 the owner authorized the distinct bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. Session behavior/logging, history data, timers, persistence, backup, and further product features remain unauthorized. See [iOS foundation evidence](ios-foundation.md), [routine browsing evidence](routine-browsing.md), and [exercise-guide implementation and recovery evidence](exercise-guides.md).
+On 2026-10-02 the owner approved the iPhone-only, simulator-first F1/F2 shell (iOS 27.0 minimum; provisional simulator bundle identifier `org.example.trainingapp.simulator`; signing and owned bundle identity deferred until physical installation). The owner separately authorized B1 bundled routine catalog/validation and B2's bounded native week → day → prescribed-exercise browsing, including the explicit source-title model correction. On 2026-10-03 the owner authorized the distinct bounded guide slice: original Spanish guide content and variant-specific navigation, with no sessions, persistence, or assets. These slices keep presentation state local and use static bundled content; they introduce no durable store, schema, or migration. See [iOS foundation evidence](ios-foundation.md), [routine browsing evidence](routine-browsing.md), and [exercise-guide implementation and recovery evidence](exercise-guides.md).
 
-The native G1 (`review-2f81f531be923a47`, `12c`→`861`) and G2 (`review-655d41a2675a9549`, `861`→`d8`) reviews are approved and acknowledged; both acknowledgement authorities are burned. G1 consumed revision `249e09eae038282768e3d30a30e306c7f5b3c18d16a16a5d0c5fc30410303c56`; G2 consumed `bff1edeaea08b575515380f2d31ecc09f0e68d206db38cffff13ee50802a0bf2`. The owner-selected feature-branch chain remains a future plan only. Review approval is not delivery authorization; no branches, push, PR, merge, or release are authorized.
+On 2026-10-04 the owner authorized incremental implementation of the first useful offline release: sessions/set logging, local persistence/recovery, rest/performance/history, versioned manual backup, and accessibility. This is new authority for future work, not a claim that those features are implemented. No elapsed-duration pause state is authorized; an interrupted active session may continue. Backup restore/protection and device-backup choices remain gates before dependent backup/data handling. iOS 27.0 is approved. The guide delivery chain (PR2–PR5) was merged; current main is `691b915`. Historical G1/G2 review approvals and burned acknowledgement authorities remain evidence only, not reusable authority; pending physical-device checks remain outstanding. See the roadmap and [exercise-guide evidence](exercise-guides.md) for current delivery context.
 
 ## Acceptance checklist for future product implementation
 
@@ -66,8 +66,8 @@ These checks are targets, not evidence that product behavior exists. Each applic
 
 ## Decisions required before affected work
 
-1. **Deployment minimum:** iOS 27.0 is approved for this iPhone-only foundation and is the project minimum; validate support/API choices against the installed SDK/compiler.
-2. **Session pause semantics:** unresolved. Distinguish resuming an active persisted session after interruption from pausing elapsed-duration/session time. **Recommendation, not approved:** preserve an active session and allow continuation without elapsed-duration pause semantics. Do not add a `paused` state or describe true pause behavior unless the owner explicitly chooses it.
+1. **Deployment minimum:** iOS 27.0 is approved for this iPhone-only project; validate support/API choices against the installed SDK/compiler.
+2. **Session pause semantics:** no elapsed-duration pause state is authorized. An interrupted active session may continue; do not add a `paused` state or describe true pause behavior.
 3. **Proposed restore semantics:** choose replace-all, merge, or a user-visible choice. Define conflict behavior and stable-ID collision handling before restore UI/data mutation.
 4. **Proposed backup protection:** choose whether backups are encrypted and how keys/passphrases/recovery are handled. Do not select an algorithm/KDF or promise recovery until reviewed.
 5. **Proposed device-backup policy:** decide whether ordinary iOS/iCloud device backups are acceptable. “Manual export only” does not exclude system backups.

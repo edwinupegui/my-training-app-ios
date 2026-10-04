@@ -47,3 +47,7 @@ The history above remains intact: the guide-domain RED was narrowly inapplicable
 - **G2 advisory:** R3-001, reliability WARNING, informational and expressly nonblocking, at `ExerciseGuideView.swift:79-81`. No correction is required; any follow-up is separate. No rationale is inferred from the location, and this advisory does not reopen review.
 - **G3 and delivery:** The owner-selected feature-branch chain is a future plan only; no branches were created. G3 records the documentation-only closeout. Approval is not delivery authorization: no push, PR, merge, or release is authorized.
 - Runtime injected-fallback behavior, physical signing/install, VoiceOver, actual Dynamic Type, contrast, Reduce Motion/Transparency, native materials, and airplane-mode checks remain pending. Simulator results are not physical-device evidence.
+
+## Current delivery status — 2026-10-04
+
+The guide delivery chain (PR2–PR5) is merged; current main is `691b915`. The historical G1/G2 acknowledgements remain burned and cannot authorize or be replayed for new work. The owner has separately authorized incremental implementation of the first useful offline release; it is not implemented yet. iOS 27.0 is approved. Physical-device checks listed above remain pending. This status supersedes the historical delivery-planning statements above without changing the recorded test, review, or recovery evidence.

@@ -10,9 +10,13 @@ This section separates **verified release/account facts**, **local toolchain obs
 | Stable Xcode observed: Xcode 27 (27A266a), released Sep 14, 2026. | Parent checked the official [Apple releases page](https://developer.apple.com/news/releases/?id=09142026h). Later Xcode 27.1 beta (Sep 18) and 27.2 beta 2 (Sep 28) were listed; they are not stable releases. |
 | Local development environment observed: Xcode 27.0, exact build 27A266a; Apple Swift 6.4, `swiftlang-6.4.0.34.1`; iOS SDK 27.0 and macOS SDK 27.0.1. | Local parent observation; not a claim about a created app target or a successfully built app. |
 | Upstream Swift release observed: Swift 6.4.0 is advertised by the [Swift install page](https://www.swift.org/install/) and its [6.4 release announcement](https://www.swift.org/blog/swift-6.4-released/) dates Sep 15, 2026. | Official Swift pages checked by parent. Upstream Swift version and bundled Apple Swift version are related but distinct labels. |
-| Deployment target | **Unresolved recommendation:** iOS 27.0 was proposed, not approved. SDK version, installed OS version, and deployment minimum are separate settings. Decide supported devices/API availability before project setup. |
+| Deployment target (as of this 2026-10-01 snapshot) | **Historical status:** iOS 27.0 was then proposed, not approved. The owner approved iOS 27.0 as the project minimum on 2026-10-02; SDK version, installed OS version, and deployment minimum remain distinct settings. |
 
 The parent verified the raw release feed, the cited Apple release record, Swift official pages, and account/help source text on the date above. The SwiftUI/SwiftData/Testing/CryptoKit and Human Interface Guidelines links elsewhere in this plan are official, source-linked API/design references; those full pages were not all reviewed as part of that raw release/signing verification. Recheck primary sources immediately before implementation or installation because release status, requirements, and fees can change.
+
+## Current authorization status — 2026-10-04
+
+The owner authorized incremental implementation of the first useful offline release; it is not implemented yet. iOS 27.0 is approved as the project minimum. Physical installation is still pending an owned bundle identifier, signing choices, and actual device checks; simulator approval does not close those gates. No elapsed-duration pause state is authorized.
 
 ## Private signing facts and limits
 
@@ -38,7 +42,7 @@ Specific Xcode labels and device prompts can change; follow current Apple docs a
 
 | Choice | Status | Needed before |
 |---|---|---|
-| iOS deployment minimum (iOS 27.0 proposed) | Not approved. | Project settings and API availability review. |
+| iOS deployment minimum | iOS 27.0 approved on 2026-10-02. | Recheck installed SDK/compiler and API availability before affected implementation. |
 | Backup encryption and recovery | Not selected; no KDF, parameters, cipher, or recovery path approved. | Format/security implementation. |
 | Restore behavior | Replace, merge, or explicit choice unresolved; collision rules unresolved. | Any live-data import implementation. |
 | iOS/iCloud device-backup inclusion | Unresolved. Manual export does not exclude system backup. | Privacy copy and storage configuration. |
