@@ -41,19 +41,15 @@ This is a distinct content/navigation slice, not session-domain behavior. It add
 - Native G1 (`review-2f81f531be923a47`, `12c`→`861`) and G2 (`review-655d41a2675a9549`, `861`→`d8`) reviews are approved and acknowledged; their authorities are burned. Advisory R3-001 at `ExerciseGuideView.swift:79-81` is informational and nonblocking; no correction is required, and any follow-up is separate. Runtime injected fallback, physical signing/install, VoiceOver, actual Dynamic Type, contrast, Reduce Motion/Transparency, native materials, and airplane-mode checks remain pending.
 - The owner-selected feature-branch chain has since been delivered as PR2–PR5 and merged; current main is `691b915`. G1 and G2 reviews were approved and their acknowledgement authorities are burned; these are historical evidence, not reusable approval. Local feature-branch commits are authorized for the newly approved work; push, new PRs, main merges, and distribution are not authorized.
 
-### 1. Future session domain model, validation, and prescribed behavior
+### 1. Pure session domain — verified 2026-10-04
 
-- Define session-domain identity and behavior, explicit units, load modes, unilateral sides, optional RIR, and session state transitions; do not duplicate the separately implemented immutable guide catalog.
-- Import only approved routine/session semantics from the reference. Do not copy the entire site, guide assets, or private measures.
-- Keep routine version and completed snapshot immutable; validate bounds, order, IDs, and references at domain boundaries.
+The bounded Foundation-only slice defines set/load/side values, immutable routine snapshots with explicit guide choices, set validation/order, active/completed/abandoned transitions, and stable comparability. Prescription text is opaque and no arbitrary magnitude caps are added. Comparisons require the same source exercise and selected guide reference/identity plus compatible load mode/unit/added-load status and side; display names and order do not confer identity.
 
-**RED:** tests fail for invalid reps/load, ambiguous units, invalid RIR, duplicate IDs, a missing reference, and comparing distinct modes. A valid bodyweight/external-load/unilateral case should also be specified.
+- Focused physical iPhone 17 run: 13 domain tests passed; the full domain unit-test target: 28 passed; physical-device app build succeeded. Exact results and the observed same-guide/distinct-exercise RED/GREEN are recorded in [session-domain.md](session-domain.md).
+- Routine and guide catalogs remain immutable. The source has no UI, persistence adapter, durable single-active-session enforcement, adjustments, timer, history, or backup behavior.
+- Functional verification is distinct from signing/distribution owner confirmation and all pending accessibility/release acceptance.
 
-**GREEN:** domain tests pass for accepted/rejected records, stable identity and order, and creation of an independent session snapshot.
-
-**Acceptance:** session-domain behavior meets its approved contract without changing the source routine or guide catalog; no personal values are seeded.
-
-### 2. Local persistence, migrations, and session recovery
+### 2. Local persistence, migrations, and session recovery (future work)
 
 - Implement the persistence adapter and versioned SwiftData schema; keep domain operations independent of SwiftData details.
 - Implement transactional begin, set-save/edit, completion, and abandonment; enforce the single-active-session invariant.

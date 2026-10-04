@@ -1,226 +1,627 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "foundation.placeholder.message" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine, history, and settings are not implemented yet." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La rutina, el historial y los ajustes aún no están implementados." } }
-      }
-    },
-    "foundation.placeholder.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training App Foundation" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Base de la aplicación de entrenamiento" } }
-      }
-    },
-    "history.placeholder.message" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Workout history is planned; no training data is stored." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "El historial de entrenamientos está previsto; no se guardan datos de entrenamiento." } }
-      }
-    },
-    "history.placeholder.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
-      }
+    "%@." : {
+
     },
     "exercise-guide.choices.section" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose a variant" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elige una variante" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a variant"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige una variante"
+          }
+        }
       }
     },
     "exercise-guide.choices.title" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exercise variants" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Variantes del ejercicio" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercise variants"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Variantes del ejercicio"
+          }
+        }
       }
     },
     "exercise-guide.section.breathing" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Breathing" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Respiración" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breathing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respiración"
+          }
+        }
       }
     },
     "exercise-guide.section.common-errors" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Common errors" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Errores comunes" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Common errors"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errores comunes"
+          }
+        }
       }
     },
     "exercise-guide.section.equipment" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Equipment" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Equipo" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equipment"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equipo"
+          }
+        }
       }
     },
     "exercise-guide.section.preparation" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preparation" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Preparación" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preparation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preparación"
+          }
+        }
       }
     },
     "exercise-guide.section.purpose" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Purpose" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Propósito" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purpose"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propósito"
+          }
+        }
       }
     },
     "exercise-guide.section.steps" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Steps" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pasos" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasos"
+          }
+        }
       }
     },
     "exercise-guide.section.target" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Muscles worked" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Músculos trabajados" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muscles worked"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Músculos trabajados"
+          }
+        }
       }
     },
     "exercise-guide.unavailable.message" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This exercise guide is unavailable. You can still browse the routine." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esta guía de ejercicio no está disponible. Aún puedes consultar la rutina." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This exercise guide is unavailable. You can still browse the routine."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta guía de ejercicio no está disponible. Aún puedes consultar la rutina."
+          }
+        }
+      }
+    },
+    "foundation.placeholder.message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Routine, history, and settings are not implemented yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La rutina, el historial y los ajustes aún no están implementados."
+          }
+        }
+      }
+    },
+    "foundation.placeholder.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Training App Foundation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Base de la aplicación de entrenamiento"
+          }
+        }
+      }
+    },
+    "history.placeholder.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout history is planned; no training data is stored."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El historial de entrenamientos está previsto; no se guardan datos de entrenamiento."
+          }
+        }
+      }
+    },
+    "history.placeholder.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
+          }
+        }
       }
     },
     "routine.catalog.unavailable.message" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The routine content is unavailable because its validation failed." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "El contenido de la rutina no está disponible porque no superó la validación." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The routine content is unavailable because its validation failed."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El contenido de la rutina no está disponible porque no superó la validación."
+          }
+        }
       }
     },
     "routine.field.cue" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cue" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Clave" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cue"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clave"
+          }
+        }
       }
     },
     "routine.field.prescription" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prescription" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Prescripción" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prescription"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prescripción"
+          }
+        }
       }
     },
     "routine.field.reference" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reference" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Referencia" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reference"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Referencia"
+          }
+        }
       }
     },
     "routine.field.rest" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Descanso" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descanso"
+          }
+        }
       }
     },
     "routine.field.target" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Target" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Objetivo" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Target"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objetivo"
+          }
+        }
       }
     },
     "routine.kind.recovery" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recovery" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recuperación" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recovery"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperación"
+          }
+        }
       }
     },
     "routine.kind.rest" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Descanso" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descanso"
+          }
+        }
       }
     },
     "routine.kind.strength" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Strength" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fuerza" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strength"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuerza"
+          }
+        }
+      }
+    },
+    "routine.placeholder.message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Routine browsing and workout tracking are planned; they are not available yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La consulta de rutinas y el registro de entrenamientos están previstos, pero aún no están disponibles."
+          }
+        }
+      }
+    },
+    "routine.placeholder.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Routine"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rutina"
+          }
+        }
       }
     },
     "routine.section.exercises" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exercises" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ejercicios" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercises"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
+          }
+        }
       }
     },
     "routine.section.recovery" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recovery" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Recuperación" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recovery"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperación"
+          }
+        }
       }
     },
     "routine.section.rest" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest day" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Día de descanso" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest day"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Día de descanso"
+          }
+        }
+      }
+    },
+    "routine.training-overview.link" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Training overview"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resumen del entrenamiento"
+          }
+        }
       }
     },
     "routine.week.title" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This week" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esta semana" } }
-      }
-    },
-    "routine.placeholder.message" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine browsing and workout tracking are planned; they are not available yet." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La consulta de rutinas y el registro de entrenamientos están previstos, pero aún no están disponibles." } }
-      }
-    },
-    "routine.placeholder.title" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rutina" } }
-      }
-    },
-    "routine.training-overview.link" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training overview" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumen del entrenamiento" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This week"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta semana"
+          }
+        }
       }
     },
     "settings.placeholder.message" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings are planned; no training or privacy options are available yet." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Los ajustes están previstos; aún no hay opciones de entrenamiento ni de privacidad." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings are planned; no training or privacy options are available yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los ajustes están previstos; aún no hay opciones de entrenamiento ni de privacidad."
+          }
+        }
       }
     },
     "settings.placeholder.title" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
+          }
+        }
       }
     },
     "tab.history" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Historial" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
+          }
+        }
       }
     },
     "tab.routine" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rutina" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Routine"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rutina"
+          }
+        }
       }
     },
     "tab.settings" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
+          }
+        }
       }
     },
     "training-overview.placeholder.message" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training plans and sessions are planned; none are available yet." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Los planes y las sesiones de entrenamiento están previstos; aún no hay ninguno disponible." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Training plans and sessions are planned; none are available yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los planes y las sesiones de entrenamiento están previstos; aún no hay ninguno disponible."
+          }
+        }
       }
     },
     "training-overview.title" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Training overview" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Resumen del entrenamiento" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Training overview"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resumen del entrenamiento"
+          }
+        }
       }
     }
   },
